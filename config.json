@@ -1,0 +1,31 @@
+
+{
+  "Authors": [
+    "Scott Smereka"
+  ],
+  "languages": [
+    "en"
+  ],
+  "navigation": [
+    {
+      "name": "Overview"
+    }, {
+      "name": "Authentication"
+    }, {
+      "name": "Request Structure"
+    }, {
+      "name": "Response Structure"
+    }, {
+      "name": "MAIDS",
+      "navigation": [
+        {
+          "name": "Overview"
+        }, {
+          "name": "Create Application ID"
+        }, {
+          "name": "Register Application ID"
+        }
+      ]
+    }
+  ]
+}
