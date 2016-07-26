@@ -1,7 +1,2 @@
-bower_modules
-node_modules
 .DS_Store
-dist
-*.log
-coverage
 .idea

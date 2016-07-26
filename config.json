@@ -1,4 +1,3 @@
-
 {
   "Authors": [
     "Scott Smereka"
@@ -12,18 +11,18 @@
     }, {
       "name": "Authentication"
     }, {
-      "name": "Request Structure"
+      "name": "API Requests"
     }, {
-      "name": "Response Structure"
+      "name": "API Responses"
     }, {
       "name": "MAIDS",
       "navigation": [
         {
           "name": "Overview"
         }, {
-          "name": "Create Application ID"
+          "name": "Create Application IDs"
         }, {
-          "name": "Register Application ID"
+          "name": "Register Application IDs"
         }
       ]
     }

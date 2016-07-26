@@ -1,7 +1,7 @@
 # Authentication
 All API requests require authentication using an <a href="http://oauth.net/2/" target="_blank">OAuth 2.0</a> access token.  You can obtain a token from [smartdevicelink.com](https://smartdevicelink.com).
 
-## Requests
+## Authenticate Requests
 To authenticate a request you can place the access token in one of two places.  Each and every request will need to be authenticated.
 
 1. In the Authorization header as a string value.
@@ -22,7 +22,7 @@ To authenticate a request you can place the access token in one of two places.  
 Invalid or missing authentication credentials could result in the following errors.
 
 ### Forbidden (403)
-A request with a valid access token, but lacking permission to perform the desired action will receive a forbidden error.
+A request with a valid access token, but lacking permission to perform the desired action will receive a ```Forbidden``` error with a status code of ```403```.
 ```json
 "Headers": {
   "Content-Type": "application/json; charset=utf-8"
@@ -37,7 +37,7 @@ A request with a valid access token, but lacking permission to perform the desir
 
 ### Unauthorized (401)
 
-A request without or with an improperly formatted access token will receive an ```Authentication Required``` 401 unauthorized error.
+A request without or with an improperly formatted access token will receive an ```Authentication Required``` error with a status code of ```401```.
 
 ```json
 "Headers": {
@@ -51,7 +51,7 @@ A request without or with an improperly formatted access token will receive an `
 }
 ```
 
-A request with invalid credentials will receive a 401 unauthorized error.
+A request with invalid credentials will receive a ```Unauthorized``` error with a status code of ```401```.
 
 ```json
 "Headers": {
@@ -65,7 +65,7 @@ A request with invalid credentials will receive a 401 unauthorized error.
 }
 ```
 
-A request with an expired access token will receive an ```Expired Access Token``` 401 unauthorized error.
+A request with an expired access token will receive an ```Expired Access Token``` error with a status code of ```401```.
 
 ```json
 "Headers": {

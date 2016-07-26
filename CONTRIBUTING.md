@@ -1,5 +1,4 @@
 # Contributing to SDL Projects
-
 Third party contributions are essential for making SDL great. However, we do have a few guidelines we need contributors to follow.
 
 ### Issues
@@ -25,5 +24,5 @@ In order to accept Pull Requests from contributors, you must first sign [the Con
 
 ### Repository Specific Guidelines
   * Please use [DocDown](https://github.com/smartdevicelink/sdl_markdown_spec) formatting for all API and Guide documentation.
-  * <a href="https://github.com/smartdevicelink/sdl_shaid/wiki/Style-Guide" target="blank">Code Style Guide</a>
+  * [Code Style Guide](https://github.com/smartdevicelink/sdl_shaid/wiki/Style-Guide)</a>
   * Please document all code written using [JS Docs](http://usejsdoc.org/) for methods and use inline code comments where it makes sense, i.e. for non-obvious code chunks.
