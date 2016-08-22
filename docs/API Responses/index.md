@@ -1,5 +1,5 @@
 # API Responses
-Each API response follows typical RESTful patterns and return JSON response bodies, unless otherwise specified.  By default a response's information is packaged in an object, called an envelope, along side additional meta data.  This meta data could include errors, paging information, etc.  
+Each API response follows typical RESTful patterns and returns a JSON response body, unless otherwise specified.  By default the API response data is packaged in an object, called an envelope, along side additional meta data.  This meta data could include errors, paging information, etc.  
 
 ## Headers
 The following is a list of possible response headers.
@@ -10,21 +10,24 @@ The following is a list of possible response headers.
 
 
 ## Response Envelope
-A response from the server will contain the expected data as well as some meta data.  The meta data can be used to help make future requests to the server, such as paging, or diagnose errors.  The following top level attributes are possible, but none of them are guaranteed to be in each response.
+A response from the server will contain the response data as well as some meta data.  The meta data can be used to help make future requests to the server (e.g. paging) or diagnose an error.  The following top level attributes are possible, but none of them are guaranteed to be in each response.
 
 | Attribute | Data Type | Description |
-|------------------|------|----------|---------|-------------|
+|-----------|------|----------|---------|-------------|
 | ```errors``` | Array of Objects | Stores one or more errors that occurred during the request. |
-| ```response``` | Varies | Stores the response data for a successful, or partially successful, request. |
+| ```data``` | Varies | Stores the response data for a successful, or partially successful, request. |
+| ```id``` | String | A unique identifier for the request and response throughout the SHAID micro-services |
 
 ### Response Data
-The ```response``` attribute stores data related to each successful request.  Some requests, such as creating multiple application IDs, may allow you to perform several requests in batch.  In these cases the ```response``` attribute may only store the successful requests, while other's in the batch failed.  The data type of the ```response``` attribute varies and you should reference each API's endpoint documentation for more details.
+The ```data``` attribute stores response data related to each successful request.  Some requests, such as creating multiple application IDs, may allow you to perform several operations in batch.  In these cases the ```data``` attribute may contain a few successful responses even though some operations failed.  The failed batched operations will instead have error messages in the ```errors``` field.  
+
+The data type of the ```data``` attribute varies and you should reference each API's endpoint documentation for more details.
 
 #### Example Response Data
 The following shows a successful response to a request to create three new application IDs.
 ```json
 {
-  "response": [{
+  "data": [{
     "id": "735035aa-c279-406d-a33e-e1871ebf6629",
     "createdBy": "321516981351381613215",
     "createdOn": "2016-07-15T20:49:59.130Z"
@@ -36,7 +39,8 @@ The following shows a successful response to a request to create three new appli
     "id": "d228298e-1ed6-4c99-9577-7b48b908872c",
     "createdBy": "321516981351381613215",
     "createdOn": "2016-07-15T20:49:59.130Z"
-  }]
+  }],
+  "id": "35742a42-6abf-47c2-891d-ad3399e83399"
 }
 ```
 
@@ -44,7 +48,7 @@ The following shows a successful response to a request to create three new appli
 The following shows a response to a partially successful batch request to register three new application IDs.  In this example, the id ```1``` already exists.
 ```json
 {
-  "response": [{
+  "data": [{
     "id": "2",
     "createdBy": "321516981351381613215",
     "createdOn": "2016-07-15T20:49:59.130Z"
@@ -65,7 +69,8 @@ The following shows a response to a partially successful batch request to regist
     "messageData": {
       "id": "1"
     }
-  }]
+  }],
+  "id": "35742a42-6abf-47c2-891d-ad3399e83399"
 }
 ```
 

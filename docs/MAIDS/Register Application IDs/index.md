@@ -9,7 +9,7 @@ Make a ```POST``` request to ```/maids/0/appids/register``` with any of the foll
 | ids | Array of Strings | Yes | ```[]``` | A list of application IDs to be registered. |
 
 ## Response
-For a successful request, an array of [application ID objects]() will be returned in the response field.
+For a successful request, an array of [application ID objects]() will be returned in the ```data``` field.
 
 ## Example
 The following example shows how to register three application IDs.
@@ -39,7 +39,7 @@ POST https://shaid.smartdevicelink.com/maids/0/appids/register
 ### Response
 ```json
 {
-  "response": [{
+  "data": [{
     "id": "AF12ADK2L2BSDL",
     "createdBy": "321516981351381613215",
     "createdOn": "2016-07-15T20:49:59.130Z"
@@ -51,6 +51,7 @@ POST https://shaid.smartdevicelink.com/maids/0/appids/register
     "id": "HHWOEK7SNBL1912G",
     "createdBy": "321516981351381613215",
     "createdOn": "2016-07-15T20:49:59.130Z"
-  }]
+  }],
+  "id": "35742a42-6abf-47c2-891d-ad3399e83399"
 }
 ```

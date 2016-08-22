@@ -9,7 +9,7 @@ Make a ```POST``` request to ```/maids/0/appids``` with any of the following bod
 | numOfIds | Number | No | ```1``` | Number of application IDs to generate. Using ridiculous values such as ```{ numOfIds: 9999999 }``` may result in your API key getting revoked. |
 
 ## Response
-For a successful request, an array of [application ID objects]() will be returned in the ```response``` field.
+For a successful request, an array of [application ID objects]() will be returned in the ```data``` field.
 
 ## Example
 The following example shows how to create three new application IDs.
@@ -35,7 +35,7 @@ POST https://shaid.smartdevicelink.com/maids/0/appids
 ### Response
 ```json
 {
-  "response": [{
+  "data": [{
     "id": "735035aa-c279-406d-a33e-e1871ebf6629",
     "createdBy": "321516981351381613215",
     "createdOn": "2016-07-15T20:49:59.130Z"
@@ -47,6 +47,7 @@ POST https://shaid.smartdevicelink.com/maids/0/appids
     "id": "d228298e-1ed6-4c99-9577-7b48b908872c",
     "createdBy": "321516981351381613215",
     "createdOn": "2016-07-15T20:49:59.130Z"
-  }]
+  }],
+  "id": "35742a42-6abf-47c2-891d-ad3399e83399"
 }
 ```
