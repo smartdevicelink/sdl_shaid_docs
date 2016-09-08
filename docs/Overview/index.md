@@ -7,7 +7,7 @@ If you are an Original Equipment Manufacturer (OEM) and have your own developer 
 ## Micro-Services
 The following is a short description of the services available.
 
-  * [MAIDS](../MAIDS/overview) - A micro service to create and register unique SDL application IDs.
+  * [MAIDS](/MAIDS/overview) - A micro service to create and register unique SDL application IDs.
 
 ## Abbreviations and Definitions
 Abbreviations used in this document are collected in the table below
