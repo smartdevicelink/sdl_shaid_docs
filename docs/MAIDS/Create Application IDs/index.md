@@ -6,10 +6,10 @@ Make a ```POST``` request to ```/maids/0/appids``` with any of the following bod
 
 | Body Parameters | Data Type | Required | Default Value| Description |
 |-----------|------|----------|---------|-------------|
-| numOfIds | Number | No | ```1``` | Number of application IDs to generate. Using ridiculous values such as ```{ numOfIds: 9999999 }``` may result in your API key getting revoked. |
+| numOfIds | Number | No | ```1``` | Number of application IDs to generate, maximum value of ````50```. |
 
 ## Response
-For a successful request, an array of [application ID objects]() will be returned in the ```data``` field.
+For a successful request, an array of [application ID](Application-IDs) objects will be returned in the ```data``` field.
 
 ## Example
 The following example shows how to create three new application IDs.
