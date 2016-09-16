@@ -6,7 +6,7 @@ Make a ```POST``` request to ```/maids/0/appids/register``` with any of the foll
 
 | Body Parameters | Data Type | Required | Default Value | Description |
 |-----------|------|----------|---------|-------------|
-| ids | Array of Strings | Yes | ```[]``` | A list of application IDs to be registered. |
+| ids | Array of Strings | Yes | ```[]``` | A list of application IDs to be registered, maximum value of ```50``` |
 
 ## Response
 For a successful request, an array of [application ID](../application-ids) objects will be returned in the ```data``` field.
