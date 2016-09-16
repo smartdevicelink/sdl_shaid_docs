@@ -9,7 +9,7 @@ Make a ```POST``` request to ```/maids/0/appids``` with any of the following bod
 | numOfIds | Number | No | ```1``` | Number of application IDs to generate, maximum value of ````50```. |
 
 ## Response
-For a successful request, an array of [application ID](Application-IDs) objects will be returned in the ```data``` field.
+For a successful request, an array of [application ID](../application-ids) objects will be returned in the ```data``` field.
 
 ## Example
 The following example shows how to create three new application IDs.

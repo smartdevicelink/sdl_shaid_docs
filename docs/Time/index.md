@@ -6,7 +6,7 @@ All date-time values are stored as ```Strings```.
 !!!
 
 ## ISO 8601
-SHAID uses [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) to display date/time values.
+SHAID uses [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) to display date-time values.
 
 All date-time values are formatted as ```date``` + ```T``` + ```time```.
 ```
