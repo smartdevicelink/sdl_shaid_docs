@@ -7,7 +7,7 @@ Make a ```POST``` request to ```/maids/0/appids/register``` with any of the foll
 | Body Parameters | Data Type | Required | Default Value | Description |
 |-----------|------|----------|---------|-------------|
 | ids | Array of Strings | Yes | ```[]``` | A list of application IDs to be registered, maximum value of ```50``` |
-| test | test | test | test | This is a test of a long sentence broken up into pieces using a br tag instead of wrapping the content like you might normally want or expect.  <br> It's really just using html tags, not sure if it needs to be documented, but someone make a pull-request to document it so let's just see if it works first anyways. |
+| test | test | test | test | This is <br> a test of a long sentence broken up into pieces using a br tag instead of wrapping the content like you might normally want or expect.  <br><br> It's really just using html tags, not sure if it needs to be documented, but someone make a pull-request to document it so let's just see if it works first anyways. |
 
 ## Response
 For a successful request, an array of [application ID](../application-ids) objects will be returned in the ```data``` field.
