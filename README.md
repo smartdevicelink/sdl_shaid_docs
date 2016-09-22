@@ -1,5 +1,7 @@
 # SDL SHAID Documentation
-Documentation for SHAID and it's group of micro-services.  Please visit [smartdevicelink.com](https://smartdevicelink.com/en/docs/shaid/master/overview/) to read and search the documentation.
+This documentation provides information for integrating with the Super Helpful Application ID (SHAID) services. SHAID is a group of micro-services that help keep information about applications synchronized across the SmartDeviceLink (SDL) ecosystem.
+
+Please visit [smartdevicelink.com](https://smartdevicelink.com/en/docs/shaid/master/overview/) to read and search the documentation.
 
 ## Micro-Services
 List of micro-services documented in this repository.
