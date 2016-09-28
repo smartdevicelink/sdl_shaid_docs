@@ -17,6 +17,15 @@
     }, {
       "name": "Time"
     }, {
+      "name": "Dumpster",
+      "navigation": [
+        {
+          "name": "Overview"
+        }, {
+          "name": "Data"
+        }
+      ]
+    }, {
       "name": "MAIDS",
       "navigation": [
         {
@@ -27,6 +36,14 @@
           "name": "Create Application IDs"
         }, {
           "name": "Register Application IDs"
+        }
+      ]
+    } ,
+    {
+      "name": "SUP",
+      "navigation": [
+        {
+          "name": "Overview"
         }
       ]
     }
