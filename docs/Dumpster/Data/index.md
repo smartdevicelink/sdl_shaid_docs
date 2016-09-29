@@ -32,6 +32,7 @@ The date and time of when the application record was created.  This occurs when 
 	"dateCreated": "2016-07-15T20:49:59.130Z"
 }
 ```
+
 ### Description
 Description of what the application is or does.  A string value, for example:
 
@@ -42,15 +43,109 @@ Description of what the application is or does.  A string value, for example:
 ```
 
 ### Functional Groups
+Before an application can use a feature offered by SDL it must first be granted permission to do so.  These permissions are granted on a per RPC basis, meaning permission to use each RPC must be granted to an application.  RPCs are grouped based on common function into what we call Functional Groups.  Applications can request access to each Functional Group an OEM offers in their vehicle.
+
+The following functional groups are available:
+
+| Functional Group | Description | RPCs |
+|------------------|-------------|------|
+| Navigation | Turn by turn directions | showConstantTBT, alertManuever, updateTurnList |
+| Vehicle Info | Vehicle information | externalTemperature, fuelLevel, fuelLevelState, etc. |
+| Driving Characteristics | Vehicle operator related information | beltStatus, driverBraking, myKey, prndl, rpm |
+| GPS & Speed | Location related information. | GPS, speed |
+| Scrollable Msgs | Deliver text to the vehicle display that requires more than one screen for the entire message body | n/a |
+| Audio Pass Through | Capture raw audio via vehicle microphone and transmit via BlueTooth to application. | n/a |
+| B2B | Application is for non-consumer download | n/a |
+
+Functional groups are stored as an ```array of strings```, for example:
+
+```JSON
+{
+	"functionalGroups": [ "Navigation", "GPS & Speed" ]
+}
+```
+
 ### iOS URL Scheme
+The [URL Scheme](https://developer.apple.com/library/content/featuredarticles/iPhoneURLScheme_Reference/Introduction/Introduction.html) is used by iOS applications to communicate or integrate with other multiple applications.  For example, a URL Scheme could be used by application A to launch application B to make a phone call.
+
+URL Scheme are ```string``` values and look like the following:
+```JSON
+{
+	"androidPackageName": "com.example.my.app"
+}
+```
+
 ### Last Updated
+The date and time of when the application record was last updated.  This occurs when a user changes an application attribute on any SDL Server or Developer portal.  The value is a [date-time](../TIME) string, for example:
+
+```JSON
+{
+	"lastUpdated": "2016-07-15T20:49:59.130Z"
+}
+```
+
 ### Last Updated By
+The user who last updated the application record.  This is a ```string``` value that uniquely identifies the user in SHAID and SmartDeviceLink.com.
+
+```JSON
+{
+	"lastUpdatedBy": "5684123aef654"
+}
+```
+
 ### Minimum Operating System
+The lowest Android or iOS operating system supported by the application.  
+
+For Android, this is the ```minSdlVersion``` found in the application's manifest file:
+```JSON
+{
+	"minimumOperatingSystem": "14"
+}
+```
+
+For iOS, this is the deployment target:
+```JSON
+{
+	"minimumOperatingSystem": "8.1"
+}
+```
+
 ### Maximum Operating System
+The highest Android or iOS operating system supported by the application in a vehicle.
+
+For Android, this is the ```minSdlVersion``` found in the application's manifest file:
+```JSON
+{
+	"minimumOperatingSystem": "17"
+}
+```
+
+For iOS, this is the deployment target:
+```JSON
+{
+	"minimumOperatingSystem": "8.5"
+}
+```
+
 ### Name
+The name of the application.  This is a ```string``` value and looks like:
+
+```JSON
+{
+	"name": "My App Name"
+}
+```
 ### Platform
+The mobile platform your application is built on.  Available options are ```android``` or ```ios```, for example:
+
+```JSON
+{
+	"platform": "Android"
+}
+```
+
 ### Notification Priority Level
-There are several different priority levels that can be granted to an application's notifications.  This will determine when and where your application can notify the passengers.  One of the following levels can be selected based on the applicaiton's main function.
+There are several different priority levels that can be granted to an application's notifications.  This will determine when and where your application can notify the passengers.  One of the following levels can be selected based on the application's main function.
 
   | Priority Level | Description |
   |----------------|-------------|
@@ -59,12 +154,6 @@ There are several different priority levels that can be granted to an applicatio
   | Normal | Deliver background alerts not related to Navigation or Communication. |
   | Emergency | Provides services similar to 911-type of help, heart monitoring, blood sugar monitoring, and the like. |
   | None | Does not deliver in-vehicle notifications. |
-
-
-Groups: [ "Vehicle Info", "B2B License (Ford Only)", "B2B License (Toyota Only)", ]
-
-
-
 
 ## User
 Data about the submitting user.
