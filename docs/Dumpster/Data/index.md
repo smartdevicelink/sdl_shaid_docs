@@ -159,8 +159,68 @@ There are several different priority levels that can be granted to an applicatio
 Data about the submitting user.
 
 ### Email
+The primary email address used to contact the user.  This is a ```string``` value that looks like:
+```JSON
+{
+	"email": "myEmail@gmail.com"
+}
+```
+
 ### First Name
+First name of the user.  This is a ```string``` value that looks like:
+```JSON
+{
+	"firstName": "John"
+}
+```
+
+### ID
+A unique identifier for the user in SHAID and SmartDeviceLink.com.  This is a ```string``` value that looks like:
+```JSON
+{
+	"id": "5684123aef654"
+}
+```
+
 ### Last Name
+First name of the user.  This is a ```string``` value that looks like:
+```JSON
+{
+	"lastName": "Smith"
+}
+```
+
 ### Phone Number
+Phone number of the user.  This is a ```string``` value that looks like:
+```JSON
+{
+	"phoneNumber": "9198675309"
+}
+```
+
 ### Primary Country
+The country in which the user resides.  Used to direct submissions to the appropriate contact at an OEM.
+
+The value for ```primaryCountryCode``` is a [ISO 3166 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) country code stored as a ```string```.  The value for ```primaryCountry``` is a user friendly name of the country stored as a ```string```.
+```JSON
+{
+	"primaryCountryCode": "us",
+	"primaryCountry": "United States of America"
+}
+```
+
+> Note:  The ```primaryCountry``` friendly name should not be used to identify a country and should only be used to display what that country is to a user.
+
 ### Primary Language
+The primary language of the user.  Used to direct submissions to the appropriate contact at an OEM.
+
+The value is a  language code stored as a ```string```.
+The value for ```primaryLanguageCode``` is a [ISO 639-1](https://en.wikipedia.org/wiki/ISO_639-1) language code stored as a ```string```.  The value for ```primaryLanguage``` is a user friendly name of the language stored as a ```string```.
+```JSON
+{
+	"primaryLanguageCode": "en",
+	"primaryLanguage": "English"
+}
+```
+
+> Note:  The ```primaryLanguage``` friendly name should not be used to identify a language and should only be used to display what that language is to a user.
