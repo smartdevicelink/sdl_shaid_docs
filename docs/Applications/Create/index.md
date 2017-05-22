@@ -6,16 +6,16 @@ Create an application with a custom UUID, or automatically generate a new UUID.
 
 ## JSON Body Parameters
 | Parameter | Data Type | Required | Default | Description |
-|-----------|----------------|----------|---------|-------------|
+|-----------|-----------|----------|---------|-------------|
 | uuid | String | No | `auto-generate` | The UUID of the new application. Leave blank/null to auto-generate a UUID. |
 | vendor_id | Integer | Yes | | The ID of the Vendor who owns this application. |
 | name | String | Yes |  | The internal name of this application. |
-| display_names | String[] | Yes | `[]` | An array of names which may be displayed as the application's name in the vehicle. |
-| status | ENUM(DEVELOPMENT,REVIEW,PRODUCTION) | Yes | | The status of the application. |
+| display_names | String[] | Yes | | An array of names which may be displayed as the application's name in the vehicle. |
+| status | ENUM(DEVELOPMENT, REVIEW, PRODUCTION) | Yes | | The status of the application. |
 | platform | ENUM(ANDROID,IOS) | Yes | | The platform of the application. |
 | platform_id | String | Yes | | The package name or bundle ID of the application. |
-| can_background_alert | Boolean | No | FALSE | Whether or not the application needs to be able to create an alert when running in the background. |
-| can_steal_focus | Boolean | No | FALSE | Whether or not the application needs to be able to request to enter the foreground. |
+| can_background_alert | Boolean | No | `FALSE` | Whether or not the application needs to be able to create an alert when running in the background. |
+| can_steal_focus | Boolean | No | `FALSE` | Whether or not the application needs to be able to request to enter the foreground. |
 | permissions | Object[] | Yes | | An array of permission objects, each containing the `id` of the permission the application uses and the `hmi_level` needed. |
 | countries | Object[] | Yes | | An array of country objects, each containing the `id` of the country the application is available in. |
 | vendors | Object[] | Yes | | An array of vendor objects, each containing the `id` of the vendor the application is granting read access to. |
