@@ -10,6 +10,8 @@ Create an application with a custom UUID, or automatically generate a new UUID.
 | uuid | String | No | `auto-generate` | The UUID of the new application. Leave blank/null to auto-generate a UUID. |
 | vendor_id | Integer | Yes | | The ID of the Vendor who owns this application. |
 | name | String | Yes |  | The internal name of this application. |
+| description | String | No | | A brief description of what the application does. |
+| icon_url | String | No | | A URL to an icon of the application's branding. |
 | display_names | String[] | Yes | | An array of names which may be displayed as the application's name in the vehicle. |
 | status | ENUM(DEVELOPMENT, REVIEW, PRODUCTION) | Yes | | The status of the application. |
 | platform | ENUM(ANDROID,IOS) | Yes | | The platform of the application. |
@@ -27,7 +29,6 @@ Create an application with a custom UUID, or automatically generate a new UUID.
 
 ## Example
 The following example shows how to create an application with an auto-generated UUID.
-`POST` https://shaid.smartdevicelink.com/api/v1/application
 
 #### Request Headers
 ```json
@@ -45,9 +46,11 @@ The following example shows how to create an application with an auto-generated 
         {
             "uuid": null,
             "vendor_id": 1,
-            "name": "App 1",
-            "display_names": ["App 1", "App One", "Application 1", "Application One"],
-            "platform_app_id": "com.demo.app.one",
+            "name": "Two App",
+            "description": null,
+            "icon_url": null,
+            "display_names": ["App Two", "Application Two"],
+            "platform_app_id": "com.demo.app.two",
             "platform": "ANDROID",
             "category_id": 1,
             "can_background_alert": true,
@@ -84,33 +87,43 @@ The following example shows how to create an application with an auto-generated 
 }
 ```
 
-### Example Response
+#### Example Response
 ```json
 {
   "meta": {
-    "request_id": "2d535fcc-a92a-4036-8678-9541f9bffcfb",
-    "code": 200,
-    "message": "Success!"
+    "request_id": "c33c3846-c898-4820-ae50-191b83bed5f3",
+    "code": 201,
+    "message": "Application(s) created!"
   },
   "data": {
     "applications": [
       {
-        "uuid": "269e4b37-8cf4-4e5d-87c0-d8ebc84449a1",
-        "name": "App 1",
-        "display_names": [
-            "App 1",
-            "App One",
-            "Application 1",
-            "Application One"
-        ],
+        "uuid": "82e17947-c83b-42ed-aef4-48ea2702e597",
         "vendor_id": 1,
+        "name": "Two App",
+        "display_names": [
+          "App Two",
+          "Application Two"
+        ],
+        "description": null,
+        "icon_url": null,
         "platform": "ANDROID",
-        "platform_app_id": "com.demo.app.one",
-        "status": "DEVELOPMENT",
+        "platform_app_id": "com.demo.app.two",
+        "category_id": 1,
         "can_background_alert": true,
         "can_steal_focus": true,
-        "created_ts": "2017-05-22T19:35:36.308Z",
-        "updated_ts": "2017-05-22T19:35:36.308Z",
+        "status": "DEVELOPMENT",
+        "updated_ts": "2017-05-22T21:28:33.329Z",
+        "permissions": [
+          {
+            "id": 18,
+            "hmi_level": "HMI_FULL"
+          },
+          {
+            "id": 20,
+            "hmi_level": "HMI_BACKGROUND"
+          }
+        ],
         "countries": [
           {
             "id": 1
@@ -119,21 +132,14 @@ The following example shows how to create an application with an auto-generated 
             "id": 2
           }
         ],
-        "permissions": [
-            {
-                "id": 18,
-                "hmi_level": "HMI_FULL"
-            },
-            {
-                "id": 20,
-                "hmi_level": "HMI_BACKGROUND"
-            }
-        ],
-        "category": {
-          "id": 1,
-          "name": "DEFAULT",
-          "display_name": "Default"
-        }
+        "vendors": [
+          {
+            "id": 1
+          },
+          {
+            "id": 2
+          }
+        ]
       }
     ]
   }
