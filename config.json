@@ -13,73 +13,68 @@
         }, {
             "name": "API Response Structure"
         }, {
-            "name": "Endpoints",
+            "name": "Applications",
             "navigation": [
                 {
-                    "name": "Application",
-                    "navigation": [
-                        {
-                            "name": "Overview"
-                        },
-                        {
-                            "name": "Read"
-                        },
-                        {
-                            "name": "Write"
-                        },
-                        {
-                            "name": "Update"
-                        },
-                        {
-                            "name": "Delete"
-                        }
-                    ]
-                }, {
-                    "name": "Category",
-                    "navigation": [
-                        {
-                            "name": "Overview"
-                        },
-                        {
-                            "name": "Read"
-                        }
-                    ]
-                }, {
-                    "name": "Country",
-                    "navigation": [
-                        {
-                            "name": "Overview"
-                        },
-                        {
-                            "name": "Read"
-                        }
-                    ]
-                }, {
-                    "name": "Permission",
-                    "navigation": [
-                        {
-                            "name": "Overview"
-                        },
-                        {
-                            "name": "Read"
-                        }
-                    ]
-                }, {
-                    "name": "Vendor",
-                    "navigation": [
-                        {
-                            "name": "Overview"
-                        },
-                        {
-                            "name": "Read"
-                        },
-                        {
-                            "name": "Write"
-                        },
-                        {
-                            "name": "Update"
-                        }
-                    ]
+                    "name": "Overview"
+                },
+                {
+                    "name": "Read"
+                },
+                {
+                    "name": "Write"
+                },
+                {
+                    "name": "Update"
+                },
+                {
+                    "name": "Delete"
+                }
+            ]
+        }, {
+            "name": "Categories",
+            "navigation": [
+                {
+                    "name": "Overview"
+                },
+                {
+                    "name": "Read"
+                }
+            ]
+        }, {
+            "name": "Countries",
+            "navigation": [
+                {
+                    "name": "Overview"
+                },
+                {
+                    "name": "Read"
+                }
+            ]
+        }, {
+            "name": "Permissions",
+            "navigation": [
+                {
+                    "name": "Overview"
+                },
+                {
+                    "name": "Read"
+                }
+            ]
+        }, {
+            "name": "Vendors",
+            "navigation": [
+                {
+                    "name": "Overview"
+                },
+                {
+                    "name": "Read"
+                },
+                {
+                    "name": "Write"
+                },
+                {
+                    "name": "Update"
                 }
             ]
         }
