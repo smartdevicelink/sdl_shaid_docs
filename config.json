@@ -13,56 +13,73 @@
         }, {
             "name": "API Response Structure"
         }, {
-            "name": "Application",
+            "name": "Endpoints",
             "navigation": [
                 {
-                    "name": "Overview"
-                },
-                {
-                    "name": "Read"
-                },
-                {
-                    "name": "Write"
-                },
-                {
-                    "name": "Update"
-                },
-                {
-                    "name": "Delete"
-                }
-            ]
-        }, {
-            "name": "Category",
-            "navigation": [
-                {
-                    "name": "Read"
-                }
-            ]
-        }, {
-            "name": "Country",
-            "navigation": [
-                {
-                    "name": "Read"
-                }
-            ]
-        }, {
-            "name": "Permission",
-            "navigation": [
-                {
-                    "name": "Read"
-                }
-            ]
-        }, {
-            "name": "Vendor",
-            "navigation": [
-                {
-                    "name": "Read"
-                },
-                {
-                    "name": "Write"
-                },
-                {
-                    "name": "Update"
+                    "name": "Application",
+                    "navigation": [
+                        {
+                            "name": "Overview"
+                        },
+                        {
+                            "name": "Read"
+                        },
+                        {
+                            "name": "Write"
+                        },
+                        {
+                            "name": "Update"
+                        },
+                        {
+                            "name": "Delete"
+                        }
+                    ]
+                }, {
+                    "name": "Category",
+                    "navigation": [
+                        {
+                            "name": "Overview"
+                        },
+                        {
+                            "name": "Read"
+                        }
+                    ]
+                }, {
+                    "name": "Country",
+                    "navigation": [
+                        {
+                            "name": "Overview"
+                        },
+                        {
+                            "name": "Read"
+                        }
+                    ]
+                }, {
+                    "name": "Permission",
+                    "navigation": [
+                        {
+                            "name": "Overview"
+                        },
+                        {
+                            "name": "Read"
+                        }
+                    ]
+                }, {
+                    "name": "Vendor",
+                    "navigation": [
+                        {
+                            "name": "Overview"
+                        },
+                        {
+                            "name": "Read"
+                        },
+                        {
+                            "name": "Write"
+                        },
+                        {
+                            "name": "Update"
+                        }
+                    ]
                 }
             ]
         }
