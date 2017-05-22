@@ -1,51 +1,70 @@
 {
-  "Authors": [
-    "Scott Smereka"
-  ],
-  "languages": [
-    "en"
-  ],
-  "navigation": [
-    {
-      "name": "Overview"
-    }, {
-      "name": "Authentication"
-    }, {
-      "name": "API Requests"
-    }, {
-      "name": "API Responses"
-    }, {
-      "name": "Time"
-    }, {
-      "name": "Dumpster",
-      "navigation": [
+    "Authors": [
+        "Nick Schwab"
+    ],
+    "languages": [
+        "en"
+    ],
+    "navigation": [
         {
-          "name": "Overview"
+            "name": "Overview"
         }, {
-          "name": "Data"
+            "name": "Authentication"
+        }, {
+            "name": "API Response Structure"
+        }, {
+            "name": "Application",
+            "navigation": [
+                {
+                    "name": "Overview"
+                },
+                {
+                    "name": "Read"
+                },
+                {
+                    "name": "Write"
+                },
+                {
+                    "name": "Update"
+                },
+                {
+                    "name": "Delete"
+                }
+            ]
+        }, {
+            "name": "Category",
+            "navigation": [
+                {
+                    "name": "Read"
+                }
+            ]
+        }, {
+            "name": "Country",
+            "navigation": [
+                {
+                    "name": "Read"
+                }
+            ]
+        }, {
+            "name": "Permission",
+            "navigation": [
+                {
+                    "name": "Read"
+                }
+            ]
+        }, {
+            "name": "Vendor",
+            "navigation": [
+                {
+                    "name": "Read"
+                },
+                {
+                    "name": "Write"
+                },
+                {
+                    "name": "Update"
+                }
+            ]
         }
-      ]
-    }, {
-      "name": "MAIDS",
-      "navigation": [
-        {
-          "name": "Overview"
-        }, {
-          "name": "Application IDs"
-        }, {
-          "name": "Create Application IDs"
-        }, {
-          "name": "Register Application IDs"
-        }
-      ]
-    } ,
-    {
-      "name": "SUP",
-      "navigation": [
-        {
-          "name": "Overview"
-        }
-      ]
-    }
-  ]
+    ]
 }
