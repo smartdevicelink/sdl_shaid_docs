@@ -22,7 +22,7 @@
                     "name": "Read"
                 },
                 {
-                    "name": "Write"
+                    "name": "Create"
                 },
                 {
                     "name": "Update"
@@ -71,7 +71,7 @@
                     "name": "Read"
                 },
                 {
-                    "name": "Write"
+                    "name": "Create"
                 },
                 {
                     "name": "Update"
