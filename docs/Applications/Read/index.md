@@ -1,5 +1,8 @@
-# Read Applications (GET)
+## Read Applications
 Retrieve one or more SDL applications and metadata about them: their UUID (a unique identifier which should be kept private), the countries the application supports, the application category, and the data permissions the application requires access to.
+
+## HTTP Request
+`GET` https://shaid.smartdevicelink.com/api/v1/application
 
 ## Query Parameters
 | Parameter | Requires Admin | Required | Default | Description |
