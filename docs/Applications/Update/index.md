@@ -19,8 +19,8 @@ Update one or more applications. This operation performs a *full overwrite* of t
 | description | String | No | | A brief description of what the application does. |
 | icon_url | String | No | | A URL to an icon of the application's branding. |
 | display_names | String[] | Yes | | An array of names which may be displayed as the application's name in the vehicle. |
-| status | ENUM(DEVELOPMENT, REVIEW, PRODUCTION) | Yes | | The status of the application. |
-| platform | ENUM(ANDROID,IOS) | Yes | | The platform of the application. |
+| status | DEVELOPMENT<br/>REVIEW<br/>PRODUCTION | Yes | | The status of the application. |
+| platform | ANDROID<br/>IOS | Yes | | The platform of the application. |
 | platform_id | String | Yes | | The package name or bundle ID of the application. |
 | can_background_alert | Boolean | No | `FALSE` | Whether or not the application needs to be able to create an alert when running in the background. |
 | can_steal_focus | Boolean | No | `FALSE` | Whether or not the application needs to be able to request to enter the foreground. |
