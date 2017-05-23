@@ -1,4 +1,5 @@
-## Create Applications *requires admin privileges*
+## Create Applications
+#### Requires admin privileges
 Create an application with a custom UUID, or automatically generate a new UUID.
 
 ## HTTP Request

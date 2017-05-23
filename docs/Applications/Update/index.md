@@ -1,4 +1,5 @@
-## Update Applications *requires admin privileges*
+## Update Applications
+#### Requires admin privileges
 Update one or more applications. This operation performs a *full overwrite* of the application's metadata, therefore you must send all metadata about an application, even if a particular attribute hasn't changed. Partial updates are performed via PATCH, which is currently unsupported.
 
 ## HTTP Request

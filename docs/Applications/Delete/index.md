@@ -1,4 +1,5 @@
-## Delete Applications *requires admin privileges*
+## Delete Applications
+#### Requires admin privileges
 Delete one or more applications.
 
 ## HTTP Request
