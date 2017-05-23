@@ -1,10 +1,15 @@
-## Create Applications
+## Create Applications *requires admin privileges*
 Create an application with a custom UUID, or automatically generate a new UUID.
 
 ## HTTP Request
 `POST` https://shaid.smartdevicelink.com/api/v1/application
 
 ## JSON Body Parameters
+| Parameter | Data Type | Required | Default | Description |
+|-----------|-----------|----------|---------|-------------|
+| applications | Application[] | Yes | | An array of application objects. |
+
+## Application Object Model
 | Parameter | Data Type | Required | Default | Description |
 |-----------|-----------|----------|---------|-------------|
 | uuid | String | No | `auto-generate` | The UUID of the new application. Leave blank/null to auto-generate a UUID. |
