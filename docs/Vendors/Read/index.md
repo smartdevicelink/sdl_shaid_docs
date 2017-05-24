@@ -48,7 +48,7 @@ The following example shows how to read all vendors that are app consumers.
 ```
 
 #### HTTP Request
-`GET` `https://shaid.smartdevicelink.com/api/v1/vendor?is_app_consumer=true`
+`GET` https://shaid.smartdevicelink.com/api/v1/vendor?is_app_consumer=true
 
 #### Example Response
 ```json
