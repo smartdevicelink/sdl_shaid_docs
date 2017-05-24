@@ -37,7 +37,7 @@ The ```errors``` attribute stores errors that occurred during a request.  When p
 | property | String | The attribute key of the erroneous data. |
 | message | String | A human-readable error message describing why the associated attribute was erroneous. |
 
-#### Example Success Response Structure
+## Example Success Response Structure
 The following shows an example success response on an operation against Applications. Please see the example response in each documented REST endpoint for a more detailed view of how each entity operation behaves.
 ```json
 {
@@ -97,7 +97,7 @@ The following shows an example success response on an operation against Applicat
 }
 ```
 
-#### Example Failure Response Structure
+## Example Failure Response Structure
 The following shows an example failed response on an operation against Applications. Please see the example response in each documented REST endpoint for a more detailed view of how each entity operation behaves.
 ```json
 {

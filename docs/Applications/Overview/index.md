@@ -15,7 +15,7 @@ Every developer who wants to allow their smartphone application to communicate w
 | platform_id | String | The package name or bundle ID of the application. |
 | can_background_alert | Boolean | Whether or not the application needs to be able to create an alert when running in the background. |
 | can_steal_focus | Boolean | Whether or not the application needs to be able to request to enter the foreground. |
-| category | Category | A [category object](../../categories/overview) representing the category the application should be listed in. |
-| permissions | Permission[] | An array of [permission objects](../../permissions/overview), each containing the `id` of the permission the application uses and the `hmi_level` needed. |
-| countries | Country[] | An array of [country objects](../../countries/overview), each containing the `id` of the country the application is available in. |
-| vendors | Vendor[] | An array of [vendor objects](../../vendors/overview), each containing the `id` of the vendor the application is granting read access to. |
+| category | [Category](../../categories/overview) | A [category object](../../categories/overview) representing the category the application should be listed in. |
+| permissions | [Permission[]](../../permissions/overview) | An array of [permission objects](../../permissions/overview), each containing the `id` of the permission the application uses and the `hmi_level` needed. |
+| countries | [Country[]](../../countries/overview) | An array of [country objects](../../countries/overview), each containing the `id` of the country the application is available in. |
+| vendors | [Vendor[]](../../vendors/overview) | An array of [vendor objects](../../vendors/overview), each containing the `id` of the vendor the application is granting read access to. |
