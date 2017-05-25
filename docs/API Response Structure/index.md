@@ -13,7 +13,7 @@ The following is a list of possible response headers.
 
 | Header Parameter | Type | Required | Default | Description |
 |------------------|------|----------|---------|-------------|
-| Content-Type | String | Yes | ```application/json; charset=utf-8``` | Unless otherwise specified, the default value will be returned. |
+| `Content-Type` | String | Yes | ```application/json; charset=utf-8``` | Unless otherwise specified, the default value will be returned. |
 
 
 ## Meta Envelope
@@ -21,9 +21,9 @@ Each JSON response includes a `meta` object, containing basic information about 
 
 | Attribute | Data Type | Description |
 |-----------|-----------|-------------|
-| request_id | String | A unique identifier representing the specific request. |
-| code | Integer | The HTTP response code of the result. |
-| message | String | A short textual summary of the result. |
+| `request_id` | String | A unique identifier representing the specific request. |
+| `code` | Integer | The HTTP response code of the result. |
+| `message` | String | A short textual summary of the result. |
 
 ## Data Envelope
 Each JSON response includes a `data` object, containing the full outcome of the result. The attributes within the `data` object vary upon the entity you're operating on.
@@ -34,8 +34,8 @@ The ```errors``` attribute stores errors that occurred during a request.  When p
 #### Error Object Model
 | Attribute | Data Type | Description |
 |------------------|------|----------|---------|-------------|
-| property | String | The attribute key of the erroneous data. |
-| message | String | A human-readable error message describing why the associated attribute was erroneous. |
+| `property` | String | The attribute key of the erroneous data. |
+| `message` | String | A human-readable error message describing why the associated attribute was erroneous. |
 
 ## Example Success Response Structure
 The following shows an example success response on an operation against Applications. Please see the example response in each documented REST endpoint for a more detailed view of how each entity operation behaves.
