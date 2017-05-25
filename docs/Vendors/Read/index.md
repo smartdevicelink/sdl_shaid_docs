@@ -61,20 +61,6 @@ The following example shows how to read all vendors that are app consumers.
   "data": {
     "vendors": [
       {
-        "id": 34,
-        "name": "Nick Schwab",
-        "email": "test@example.com",
-        "is_admin": false,
-        "is_app_consumer": false,
-        "sdlc_member_level": 5,
-        "webhook_url": null,
-        "icon_url": null,
-        "public_key": "c355858d-e0c1-4f66-8fab-61eb29c2d8e5",
-        "secret_key": "c456d046-4185-4579-bf9c-93b36a24fa9b",
-        "created_ts": "2017-05-24T15:42:21.632Z",
-        "updated_ts": "2017-05-24T15:42:21.632Z"
-      },
-      {
         "id": 35,
         "name": "Example OEM",
         "email": "example@oem.com",
