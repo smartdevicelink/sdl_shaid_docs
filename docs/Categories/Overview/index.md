@@ -4,6 +4,6 @@ A SmartDeviceLink Application always has a category associated to it, chosen by 
 ## Category Object Model
 | Attribute | Data Type | Description |
 |-----------|-----------|-------------|
-| id | Integer | The unique numerical ID of the category. |
-| display_name | String | The user-friendly name of the category. |
-| is_selected | Boolean | Whether or not the category is in use by the optionally provided context of an Application UUID. |
+| `id` | Integer | The unique numerical ID of the category. |
+| `display_name` | String | The user-friendly name of the category. |
+| `is_selected` | Boolean | Whether or not the category is in use by the optionally provided context of an Application UUID. |

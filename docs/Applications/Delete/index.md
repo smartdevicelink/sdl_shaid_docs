@@ -8,12 +8,12 @@ Delete one or more applications.
 ## JSON Body Parameters
 | Parameter | Data Type | Required | Default | Description |
 |-----------|-----------|----------|---------|-------------|
-| applications | Application[] | Yes | | An array of application objects. |
+| `applications` | Application[] | Yes | | An array of application objects. |
 
 ## Application Object Model
 | Parameter | Data Type | Required | Default | Description |
 |-----------|-----------|----------|---------|-------------|
-| uuid | String | Yes | | The UUID of the application to delete. |
+| `uuid` | String | Yes | | The UUID of the application to delete. |
 
 ## Response Codes
 * `200`: Application(s) deleted!

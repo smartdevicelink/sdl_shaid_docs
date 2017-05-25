@@ -8,7 +8,7 @@ Retrieve a list of supported categories an Application can choose to be associat
 ## Query Parameters
 | Parameter | Required | Default | Description |
 |-----------|----------|---------|-------------|
-| application_uuid | No | | Check each Category against the given Application to see if it is currently chosen by the Application, returned by the `is_selected` attribute. |
+| `application_uuid` | No | | Check each Category against the given Application to see if it is currently chosen by the Application, returned by the `is_selected` attribute. |
 
 ## Example Response
 

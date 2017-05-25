@@ -8,7 +8,7 @@ Retrieve a list of supported countries an Application can choose to be associate
 ## Query Parameters
 | Parameter | Required | Default | Description |
 |-----------|----------|---------|-------------|
-| application_uuid | No | | Check each Country against the given Application to see if it is currently chosen by the Application, returned by the `is_selected` attribute. |
+| `application_uuid` | No | | Check each Country against the given Application to see if it is currently chosen by the Application, returned by the `is_selected` attribute. |
 
 ## Example Response
 

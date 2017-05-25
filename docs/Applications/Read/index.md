@@ -7,10 +7,10 @@ Retrieve one or more SDL applications and metadata about them: their UUID (a uni
 ## Query Parameters
 | Parameter | Requires Admin | Required | Default | Description |
 |-----------|----------------|----------|---------|-------------|
-| uuid | No | No | | Find a specific application by its UUID. |
-| status | Yes | No | | Only retrieve applications matching the provided status (DEVELOPMENT, REVIEW, PRODUCTION). |
-| limit | No | No | 50 | The maximum number of results to return. Max 50. |
-| offset | No | No | 0 | The number of results to offset, for basic pagination. |
+| `uuid` | No | No | | Find a specific application by its UUID. |
+| `status` | Yes | No | | Only retrieve applications matching the provided status (DEVELOPMENT, REVIEW, PRODUCTION). |
+| `limit` | No | No | 50 | The maximum number of results to return. Max 50. |
+| `offset` | No | No | 0 | The number of results to offset, for basic pagination. |
 
 ## Behavioral Notes
 * Non-administrative vendors always query applications with `PRODUCTION` status, regardless of the provided parameter.

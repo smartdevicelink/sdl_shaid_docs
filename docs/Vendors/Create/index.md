@@ -8,18 +8,18 @@ Create a new Vendor.
 ## JSON Body Parameters
 | Parameter | Data Type | Required | Default | Description |
 |-----------|-----------|----------|---------|-------------|
-| vendors | Vendor[] | Yes | | An array of vendor objects. |
+| `vendors` | Vendor[] | Yes | | An array of vendor objects. |
 
 ## Vendor Object Model
 | Attribute | Data Type | Description |
 |-----------|-----------|-------------|
-| is_admin | Boolean | Whether or not the Vendor is an admin. |
-| is_app_consumer | Boolean | Whether or not the Vendor is allowed to read applications via the API and appear as an OEM for a developer to choose to grant access to. |
-| sdlc_member_level | Integer | The SDLC membership level of the Vendor, 1 being the highest. |
-| name | String | The Vendor's name (either a person or a company). |
-| email | String | The Vendor's email address. |
-| icon_url | String | A URL of the Vendor's logo. |
-| webhook_url | String | A URL of where the Vendor would like to get webhook requests when an Application is modified. |
+| `is_admin` | Boolean | Whether or not the Vendor is an admin. |
+| `is_app_consumer` | Boolean | Whether or not the Vendor is allowed to read applications via the API and appear as an OEM for a developer to choose to grant access to. |
+| `sdlc_member_level` | Integer | The SDLC membership level of the Vendor, 1 being the highest. |
+| `name` | String | The Vendor's name (either a person or a company). |
+| `email` | String | The Vendor's email address. |
+| `icon_url` | String | A URL of the Vendor's logo. |
+| `webhook_url` | String | A URL of where the Vendor would like to get webhook requests when an Application is modified. |
 
 ## Response Codes
 * `201`: Vendor(s) created! The vendors provided were successfully created and are returned in the response body.

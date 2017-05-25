@@ -8,7 +8,7 @@ Retrieve a list of supported permissions an Application can request access to. A
 ## Query Parameters
 | Parameter | Required | Default | Description |
 |-----------|----------|---------|-------------|
-| application_uuid | No | | Check each Permission against the given Application to see if it is currently in use by the Application, returned by the `selected_hmi_level` attribute. |
+| `application_uuid` | No | | Check each Permission against the given Application to see if it is currently in use by the Application, returned by the `selected_hmi_level` attribute. |
 
 ## Example Response
 
