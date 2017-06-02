@@ -16,11 +16,3 @@ Abbreviations used in this document are collected in the table below
 |SDL|SmartDeviceLink|
 |SEE|Software Engineering Environment|
 |SHAID|Shared Application ID|
-
-## Dates and Date-Time
-SHAID uses [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) to store and return date-time values.
-
-#### Example Date-Time
-```
-2016-07-15T20:49:59.130Z
-```

@@ -2,7 +2,7 @@
 Each API response follows typical RESTful patterns and returns a JSON response body, unless otherwise specified.
 
 ## API Behavior
-API endpoints which support multi-entity operations (e.g. creating multiple Applications in a single request) are "all-or-nothing", meaning that if a single entity fails the operation or is malformed, the whole request will fail and no changes will be made.
+API endpoints which support multi-entity operations (e.g. creating multiple Applications in a single request) are *"all-or-nothing"*, meaning that if a single entity fails the operation or is malformed, the whole request will fail and no changes will be made.
 
 In the event of an HTTP 400 error, the response `data` object will contain information about the failing entities.
 
@@ -16,7 +16,7 @@ The following is a list of possible response headers.
 | `Content-Type` | String | Yes | ```application/json; charset=utf-8``` | Unless otherwise specified, the default value will be returned. |
 
 
-## Meta Envelope
+## Meta Object Model
 Each JSON response includes a `meta` object, containing basic information about the result of the request.
 
 | Attribute | Data Type | Description |
@@ -25,7 +25,7 @@ Each JSON response includes a `meta` object, containing basic information about 
 | `code` | Integer | The HTTP response code of the result. |
 | `message` | String | A short textual summary of the result. |
 
-## Data Envelope
+## Data Object Model
 Each JSON response includes a `data` object, containing the full outcome of the result. The attributes within the `data` object vary upon the entity you're operating on.
 
 ## Errors
@@ -161,4 +161,12 @@ The following shows an example failed response on an operation against Applicati
     ]
   }
 }
+```
+
+## Timestamps
+SHAID uses [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) to store and return timestamp values.
+
+#### Example Timestamp
+```
+2016-07-15T20:49:59.130Z
 ```
