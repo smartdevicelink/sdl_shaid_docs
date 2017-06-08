@@ -1,5 +1,4 @@
 # Read Countries
-#### Requires admin privileges
 Retrieve a list of supported countries an Application can choose to be associated with. An Application may be associated with many countries.
 
 ## HTTP Request

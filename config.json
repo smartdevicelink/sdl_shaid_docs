@@ -20,15 +20,6 @@
                 },
                 {
                     "name": "Read"
-                },
-                {
-                    "name": "Create"
-                },
-                {
-                    "name": "Update"
-                },
-                {
-                    "name": "Delete"
                 }
             ]
         }, {
@@ -59,22 +50,6 @@
                 },
                 {
                     "name": "Read"
-                }
-            ]
-        }, {
-            "name": "Vendors",
-            "navigation": [
-                {
-                    "name": "Overview"
-                },
-                {
-                    "name": "Read"
-                },
-                {
-                    "name": "Create"
-                },
-                {
-                    "name": "Update"
                 }
             ]
         }

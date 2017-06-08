@@ -1,5 +1,4 @@
 # Read Categories
-#### Requires admin privileges
 Retrieve a list of supported categories an Application can choose to be associated with. An Application may only be associated to one category.
 
 ## HTTP Request

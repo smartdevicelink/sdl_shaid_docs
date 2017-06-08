@@ -15,7 +15,7 @@ Every SHAID API request must be authenticated by placing your Vendor key pair in
 The following HTTP response codes are related to authentication errors.
 
 ### Unauthorized (401)
-Your API `public_key` and `secret_key` are not valid or your SDLC Membership Level does not allow SHAID access.
+Your API `public_key` and `secret_key` are not valid.
 
 ### Forbidden (403)
-You are not authorized to perform the request. If you believe this is a mistake, please contact support@livio.io.
+You are not authorized to perform the request, likely due to your SDLC Membership Level. If you believe this is a mistake, please contact support@livio.io.

@@ -1,5 +1,4 @@
 # Read Permissions
-#### Requires admin privileges
 Retrieve a list of supported permissions an Application can request access to. An Application can use many permissions.
 
 ## HTTP Request

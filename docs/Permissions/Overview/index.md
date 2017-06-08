@@ -1,5 +1,5 @@
 # Permissions
-A SmartDeviceLink Application requires certain data permissions about the mobility experience. These permissions are chosen by the developer and should be synchronized with OEM systems or SDL Server implementations.
+A SmartDeviceLink Application requires certain data permissions about the mobility experience. These permissions are chosen by the developer and should be synchronized with OEM systems or SDL Policy Server implementations.
 
 ## Permission Category Object Model
 | Attribute | Data Type | Description |
