@@ -33,12 +33,18 @@ Retrieve one or more SDL applications and metadata about them: their UUID (a uni
         "display_names": [
           "hello"
         ],
-        "vendor_id": 1,
+        "vendor": {
+          "id": 1,
+          "name": "Example App Developer",
+          "email": "developer@examplecompany.com"
+        },
         "platform": "ANDROID",
         "platform_app_id": "a11",
         "status": "DEVELOPMENT",
         "can_background_alert": true,
         "can_steal_focus": true,
+        "tech_email": "technicalcontact@examplecompany.com",
+        "tech_phone": "12345678901",
         "created_ts": "2017-05-22T19:35:36.308Z",
         "updated_ts": "2017-05-22T19:35:36.308Z",
         "countries": [
