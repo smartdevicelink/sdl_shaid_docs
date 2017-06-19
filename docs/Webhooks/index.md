@@ -16,7 +16,7 @@ Below is an example of a webhook package indicating that an SDL application has 
   "uuid": "7ef0dc6f-6c31-481d-b7c1-3ada0f8b7df2",
   "updated_ts": "2017-06-16T13:33:17.034"
 }
-`
+```
 
 ## Other Webhook Types
 There are currently no other webhook types, but we may introduce more in the future. Please make sure your webhook receiver is designed to gracefully handle additional types over time.
