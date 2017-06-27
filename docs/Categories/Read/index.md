@@ -2,7 +2,7 @@
 Retrieve a list of supported categories an Application can choose to be associated with. An Application may only be associated to one category.
 
 ## HTTP Request
-`GET` https://shaid.smartdevicelink.com/api/v1/category
+`GET` https://shaid.smartdevicelink.com/api/v2/category
 
 ## Query Parameters
 | Parameter | Required | Default | Description |

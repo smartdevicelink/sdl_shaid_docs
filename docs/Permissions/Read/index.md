@@ -2,7 +2,7 @@
 Retrieve a list of supported permissions an Application can request access to. An Application can use many permissions.
 
 ## HTTP Request
-`GET` https://shaid.smartdevicelink.com/api/v1/permission
+`GET` https://shaid.smartdevicelink.com/api/v2/permission
 
 ## Query Parameters
 | Parameter | Required | Default | Description |

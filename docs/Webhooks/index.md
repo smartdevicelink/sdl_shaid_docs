@@ -14,7 +14,8 @@ Below is an example of a webhook package indicating that an SDL application has 
 {
   "webhook_type": "application",
   "uuid": "7ef0dc6f-6c31-481d-b7c1-3ada0f8b7df2",
-  "updated_ts": "2017-06-16T13:33:17.034"
+  "updated_ts": "2017-06-16T13:33:17.034",
+  "deleted_ts": null
 }
 ```
 

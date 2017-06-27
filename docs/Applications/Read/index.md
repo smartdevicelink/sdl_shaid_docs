@@ -2,51 +2,50 @@
 Retrieve one or more SDL applications and metadata about them: their UUID (a unique identifier which should be kept private), the countries the application supports, the application category, and the data permissions the application requires access to.
 
 ## HTTP Request
-`GET` https://shaid.smartdevicelink.com/api/v1/application
+`GET` https://shaid.smartdevicelink.com/api/v2/application
 
 ## Query Parameters
-| Parameter | Requires Admin | Required | Default | Description |
-|-----------|----------------|----------|---------|-------------|
-| `uuid` | No | No | | Find a specific application by its UUID. |
-| `status` | Yes | No | | Only retrieve applications matching the provided status (DEVELOPMENT, REVIEW, PRODUCTION). |
-| `limit` | No | No | 50 | The maximum number of results to return. Max 50. |
-| `offset` | No | No | 0 | The number of results to offset, for basic pagination. |
+| Parameter | Required | Default | Description |
+|-----------|----------|---------|-------------|
+| `uuid` | No | | Find a specific application by its UUID. |
+| `limit` | No | 50 | The maximum number of results to return. Max 50. |
+| `offset` | No | 0 | The number of results to offset, for basic pagination. |
 
 ## Behavioral Notes
-* Non-administrative vendors always query applications with `PRODUCTION` status, regardless of the provided parameter.
-* Non-administrative vendors always query applications that they have been given explicit permission to view by application developers. All other applications will not appear in results.
 * If no results are found, the request will succeed with an empty array of applications in the response.
+
+## Response Codes
+* `200`: Application(s) retrieved! The request was successful and any matching applications are returned in the response body.
+* `400`: Invalid request. The request is either missing data, has invalid data, or has conflicting data. See the response body for more details.
+* `500`: Internal server error.
 
 ## Example Response
 ```json
 {
   "meta": {
-    "request_id": "2d535fcc-a92a-4036-8678-9541f9bffcfb",
+    "request_id": "10ae97d7-c017-449a-bbc1-43d060010419",
     "code": 200,
     "message": "Success!"
   },
   "data": {
     "applications": [
       {
-        "uuid": "269e4b37-8cf4-4e5d-87c0-d8ebc84449a1",
+        "uuid": "fa317820-60d2-4149-a7be-53239430270b",
         "name": "App 1",
         "display_names": [
-          "hello"
+          "App One",
+          "App 1"
         ],
-        "vendor": {
-          "id": 1,
-          "name": "Example App Developer",
-          "email": "developer@examplecompany.com"
-        },
         "platform": "ANDROID",
-        "platform_app_id": "a11",
-        "status": "DEVELOPMENT",
+        "platform_app_id": "com.company.android.one",
+        "status": "PRODUCTION",
         "can_background_alert": true,
         "can_steal_focus": true,
-        "tech_email": "technicalcontact@examplecompany.com",
-        "tech_phone": "12345678901",
-        "created_ts": "2017-05-22T19:35:36.308Z",
-        "updated_ts": "2017-05-22T19:35:36.308Z",
+        "tech_email": "tech@company.com",
+        "tech_phone": "2345678901",
+        "default_hmi_level": "HMI_NONE",
+        "created_ts": "2017-06-16T14:44:14.519Z",
+        "updated_ts": "2017-06-16T14:44:14.519Z",
         "countries": [
           {
             "id": 1,
@@ -63,18 +62,25 @@ Retrieve one or more SDL applications and metadata about them: their UUID (a uni
           {
             "id": 18,
             "key": "accPedalPosition",
-            "name": "Accelerator Pedal Position"
+            "name": "Accelerator Pedal Position",
+            "hmi_level": "HMI_FULL"
           },
           {
             "id": 20,
             "key": "driverBraking",
-            "name": "Braking"
+            "name": "Braking",
+            "hmi_level": "HMI_BACKGROUND"
           }
         ],
         "category": {
           "id": 1,
           "name": "DEFAULT",
           "display_name": "Default"
+        },
+        "vendor": {
+          "id": 1,
+          "name": "SmartDeviceLink",
+          "email": "person@example.com"
         }
       }
     ]

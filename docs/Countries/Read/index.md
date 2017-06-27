@@ -2,7 +2,7 @@
 Retrieve a list of supported countries an Application can choose to be associated with. An Application may be associated with many countries.
 
 ## HTTP Request
-`GET` https://shaid.smartdevicelink.com/api/v1/country
+`GET` https://shaid.smartdevicelink.com/api/v2/country
 
 ## Query Parameters
 | Parameter | Required | Default | Description |

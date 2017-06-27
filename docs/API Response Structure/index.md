@@ -60,6 +60,7 @@ The following shows an example success response on an operation against Applicat
         "status": "DEVELOPMENT",
         "can_background_alert": true,
         "can_steal_focus": true,
+        "default_hmi_level": "HMI_LIMITED",
         "created_ts": "2017-05-22T19:35:36.308Z",
         "updated_ts": "2017-05-22T19:35:36.308Z",
         "countries": [
@@ -123,6 +124,7 @@ The following shows an example failed response on an operation against Applicati
         "category_id": 1,
         "can_background_alert": true,
         "can_steal_focus": true,
+        "default_hmi_level": "HMI_LIMITED",
         "status": "DEVELOPMENT",
         "updated_ts": "2017-05-24T19:48:00.672Z",
         "permissions": [
