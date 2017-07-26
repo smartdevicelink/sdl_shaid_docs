@@ -1,4 +1,4 @@
-## [Click here for the full API documentation](https://shaid.smartdevicelink.com/docs)
+### [Click here for the full API documentation](https://shaid.smartdevicelink.com/docs)
 # SHAID, version 2.0.0
 
 Base URL: https|http://shaid2-staging.us-east-1.elasticbeanstalk.com/api/v2
