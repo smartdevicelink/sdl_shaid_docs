@@ -7,51 +7,9 @@
     ],
     "navigation": [
         {
-            "name": "Overview"
+            "name": "v2"
         }, {
-            "name": "Authentication"
-        }, {
-            "name": "API Response Structure"
-        }, {
-            "name": "Applications",
-            "navigation": [
-                {
-                    "name": "Overview"
-                },
-                {
-                    "name": "Read"
-                }
-            ]
-        }, {
-            "name": "Categories",
-            "navigation": [
-                {
-                    "name": "Overview"
-                },
-                {
-                    "name": "Read"
-                }
-            ]
-        }, {
-            "name": "Countries",
-            "navigation": [
-                {
-                    "name": "Overview"
-                },
-                {
-                    "name": "Read"
-                }
-            ]
-        }, {
-            "name": "Permissions",
-            "navigation": [
-                {
-                    "name": "Overview"
-                },
-                {
-                    "name": "Read"
-                }
-            ]
+            "name": "v1"
         }
     ]
 }
