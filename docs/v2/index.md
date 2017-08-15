@@ -1,7 +1,7 @@
 ### [Click here for the full API documentation](https://shaid.smartdevicelink.com/docs)
 # SHAID, version 2.0.0
 
-Base URL: https|http://shaid2-staging.us-east-1.elasticbeanstalk.com/api/v2
+Base URL: https|http://shaid.smartdevicelink.com/api/v2
 
 - [Endpoints](#endpoints)
   - [POST /application](#post-application)
@@ -37,6 +37,7 @@ Base URL: https|http://shaid2-staging.us-east-1.elasticbeanstalk.com/api/v2
     - (object)
       - uuid (string) (optional) A unique value representing the application.
       - name (string) The name of the application. This name will NOT be displayed on the vehicle's HMI unless it is also in `display_names`.
+      - description (string) (optional) The description of the application. This should be a brief consumer-friendly explanation of what the application offers to SDL users.
       - display_names (array) An array of application names which the application may use to display on the vehicle's HMI.
         - (string)
       - platform (string: ANDROID, IOS) The device platform the app is designed for.
@@ -48,6 +49,7 @@ Base URL: https|http://shaid2-staging.us-east-1.elasticbeanstalk.com/api/v2
       - default_hmi_level (string: HMI_NONE, HMI_BACKGROUND, HMI_LIMITED, HMI_FULL) (optional)
       - can_steal_focus (boolean) (optional) Whether or not the application needs to be able to request to enter the foreground.
       - can_background_alert (boolean) (optional) Whether or not the application needs to be able to create an alert when running in the background.
+      - allow_marketing (boolean) (optional) Whether or not the application has been allowed by the developer to appear in SDL-related marketing material.
       - created_ts (string, date-time) (optional) The DateTime the application was created.
       - updated_ts (string, date-time) (optional) The DateTime the application was last updated.
       - countries (array) (optional)
@@ -131,6 +133,7 @@ N/A
     - (object)
       - uuid (string) (optional) A unique value representing the application.
       - name (string) The name of the application. This name will NOT be displayed on the vehicle's HMI unless it is also in `display_names`.
+      - description (string) (optional) The description of the application. This should be a brief consumer-friendly explanation of what the application offers to SDL users.
       - display_names (array) An array of application names which the application may use to display on the vehicle's HMI.
         - (string)
       - platform (string: ANDROID, IOS) The device platform the app is designed for.
@@ -142,6 +145,7 @@ N/A
       - default_hmi_level (string: HMI_NONE, HMI_BACKGROUND, HMI_LIMITED, HMI_FULL) (optional)
       - can_steal_focus (boolean) (optional) Whether or not the application needs to be able to request to enter the foreground.
       - can_background_alert (boolean) (optional) Whether or not the application needs to be able to create an alert when running in the background.
+      - allow_marketing (boolean) (optional) Whether or not the application has been allowed by the developer to appear in SDL-related marketing material.
       - created_ts (string, date-time) (optional) The DateTime the application was created.
       - updated_ts (string, date-time) (optional) The DateTime the application was last updated.
       - countries (array) (optional)
@@ -270,6 +274,7 @@ N/A
     - (object)
       - uuid (string) (optional) A unique value representing the application.
       - name (string) The name of the application. This name will NOT be displayed on the vehicle's HMI unless it is also in `display_names`.
+      - description (string) (optional) The description of the application. This should be a brief consumer-friendly explanation of what the application offers to SDL users.
       - display_names (array) An array of application names which the application may use to display on the vehicle's HMI.
         - (string)
       - platform (string: ANDROID, IOS) The device platform the app is designed for.
@@ -281,6 +286,7 @@ N/A
       - default_hmi_level (string: HMI_NONE, HMI_BACKGROUND, HMI_LIMITED, HMI_FULL) (optional)
       - can_steal_focus (boolean) (optional) Whether or not the application needs to be able to request to enter the foreground.
       - can_background_alert (boolean) (optional) Whether or not the application needs to be able to create an alert when running in the background.
+      - allow_marketing (boolean) (optional) Whether or not the application has been allowed by the developer to appear in SDL-related marketing material.
       - created_ts (string, date-time) (optional) The DateTime the application was created.
       - updated_ts (string, date-time) (optional) The DateTime the application was last updated.
       - countries (array) (optional)
@@ -364,6 +370,7 @@ N/A
     - (object)
       - uuid (string) (optional) A unique value representing the application.
       - name (string) The name of the application. This name will NOT be displayed on the vehicle's HMI unless it is also in `display_names`.
+      - description (string) (optional) The description of the application. This should be a brief consumer-friendly explanation of what the application offers to SDL users.
       - display_names (array) An array of application names which the application may use to display on the vehicle's HMI.
         - (string)
       - platform (string: ANDROID, IOS) The device platform the app is designed for.
@@ -375,6 +382,7 @@ N/A
       - default_hmi_level (string: HMI_NONE, HMI_BACKGROUND, HMI_LIMITED, HMI_FULL) (optional)
       - can_steal_focus (boolean) (optional) Whether or not the application needs to be able to request to enter the foreground.
       - can_background_alert (boolean) (optional) Whether or not the application needs to be able to create an alert when running in the background.
+      - allow_marketing (boolean) (optional) Whether or not the application has been allowed by the developer to appear in SDL-related marketing material.
       - created_ts (string, date-time) (optional) The DateTime the application was created.
       - updated_ts (string, date-time) (optional) The DateTime the application was last updated.
       - countries (array) (optional)
