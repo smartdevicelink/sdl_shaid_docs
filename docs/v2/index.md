@@ -25,11 +25,16 @@ Retrieve one or more SDL applications and metadata about them: their UUID (a uni
 | in    | name            | type                                    | required | description                                                                                                                                                                                                         | default |
 |-------|-----------------|-----------------------------------------|----------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------|
 | query | uuid            | string                                  | false    | Find a specific application by its UUID.                                                                                                                                                                            |         |
-| query | vendor_id       | integer                                 | false    | Find applications owned by a specific Vendor                                                                                                                                                                        | `null`  |
+| query | vendor_id       | integer                                 | false    | Find applications owned by a specific Vendor                                                                                                                                                                        |         |
 | query | status          | string: DEVELOPMENT, REVIEW, PRODUCTION | false    | Only retrieve applications matching the provided status. This parameter is only available for vendors with SHAID admin access; For non-admins, the value of this parameter will always be `PRODUCTION`.             |         |
 | query | approval_status | string: DENIED, PENDING, APPROVED       | false    | Only retrieve applications matching the provided SDLC approval status. This parameter is only available for vendors with SHAID admin access; For non-admins, the value of this parameter will always be `APPROVED`. |         |
-| query | limit           | integer                                 | false    | The maximum number of results to return. Max 50.                                                                                                                                                                    | `50`    |
+| query | platform        | string: ANDROID, IOS                    | false    | Only retrieve applications matching the provided platform.                                                                                                                                                          |         |
+| query | country_iso     | string                                  | false    | Only retrieve applications built to support the provided country.                                                                                                                                                   |         |
+| query | category_id     | integer                                 | false    | Only retrieve applications in the provided category. See `GET /category` for a list of available values.                                                                                                            |         |
+| query | allow_marketing | boolean                                 | false    | Only retrieve applications that explicitly allow or deny marketing/promotion of their application.                                                                                                                  |         |
+| query | limit           | integer                                 | false    | The maximum number of results to return. Max 50. Default 50.                                                                                                                                                        | `50`    |
 | query | offset          | integer                                 | false    | The number of results to offset, for basic pagination.                                                                                                                                                              | `0`     |
+| query | sort_by         | string: id, name                        | false    | How to order the results.                                                                                                                                                                                           | `"id"`  |
 
 #### Response: 200
 
@@ -151,9 +156,11 @@ Retrieve a list of supported permissions an Application can request access to. A
 
 **Parameters**
 
-| in    | name             | type   | required | description                                                                                                                                   |
-|-------|------------------|--------|----------|-----------------------------------------------------------------------------------------------------------------------------------------------|
-| query | application_uuid | string | false    | Check each permission against the given Application to see if it is currently in use by the Application, returned by the hmi_level attribute. |
+| in    | name             | type    | required | description                                                                                                                                   | default |
+|-------|------------------|---------|----------|-----------------------------------------------------------------------------------------------------------------------------------------------|---------|
+| query | application_uuid | string  | false    | Check each permission against the given Application to see if it is currently in use by the Application, returned by the hmi_level attribute. |         |
+| query | include_hidden   | boolean | false    | Set to `true` to return permissions which are not presented to app developers as selectable permission options. Default `false`.              | `false` |
+| query | include_parents  | boolean | false    | Set to `true` to return a `parent_permissions` array of permission objects in each first-level permission object. Default `false`.            | `false` |
 
 #### Response: 200
 
@@ -193,7 +200,9 @@ N/A
 
 ## POST /webhooks
 
-### Summary
+#### Not an actual endpoint. This section describes how webhooks are sent to third-party SDL Policy Servers
+
+ ### Summary
  Webhook events are sent to Vendors who have SDLC Membership level 1-2 and have opted to receive them. They are designed to assist SDL Policy Servers in maintaining a synchronized state of SDL application metadata to ensure Policy Tables are kept up-to-date.
 
  ### Success, Retry, and Failure
