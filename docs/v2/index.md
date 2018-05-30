@@ -1,7 +1,7 @@
 ### [Click here for the full API documentation](https://shaid.smartdevicelink.com/docs)
 # SHAID v2.0.0
 
-Base URL: https|http://shaid.smartdevicelink.com/api/v2
+Base URL: https://shaid.smartdevicelink.com/api/v2
 
 - [Endpoints](#endpoints)
   - [GET /application](#get-application)
@@ -22,19 +22,20 @@ Retrieve one or more SDL applications and metadata about them: their UUID (a uni
 
 **Parameters**
 
-| in    | name            | type                                    | required | description                                                                                                                                                                                                         | default |
-|-------|-----------------|-----------------------------------------|----------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------|
-| query | uuid            | string                                  | false    | Find a specific application by its UUID.                                                                                                                                                                            |         |
-| query | vendor_id       | integer                                 | false    | Find applications owned by a specific Vendor                                                                                                                                                                        |         |
-| query | status          | string: DEVELOPMENT, REVIEW, PRODUCTION | false    | Only retrieve applications matching the provided status. This parameter is only available for vendors with SHAID admin access; For non-admins, the value of this parameter will always be `PRODUCTION`.             |         |
-| query | approval_status | string: DENIED, PENDING, APPROVED       | false    | Only retrieve applications matching the provided SDLC approval status. This parameter is only available for vendors with SHAID admin access; For non-admins, the value of this parameter will always be `APPROVED`. |         |
-| query | platform        | string: ANDROID, IOS                    | false    | Only retrieve applications matching the provided platform.                                                                                                                                                          |         |
-| query | country_iso     | string                                  | false    | Only retrieve applications built to support the provided country.                                                                                                                                                   |         |
-| query | category_id     | integer                                 | false    | Only retrieve applications in the provided category. See `GET /category` for a list of available values.                                                                                                            |         |
-| query | allow_marketing | boolean                                 | false    | Only retrieve applications that explicitly allow or deny marketing/promotion of their application.                                                                                                                  |         |
-| query | limit           | integer                                 | false    | The maximum number of results to return. Max 50. Default 50.                                                                                                                                                        | `50`    |
-| query | offset          | integer                                 | false    | The number of results to offset, for basic pagination.                                                                                                                                                              | `0`     |
-| query | sort_by         | string: id, name                        | false    | How to order the results.                                                                                                                                                                                           | `"id"`  |
+| in    | name              | type                                    | required | description                                                                                                                                                                                                                             | default |
+|-------|-------------------|-----------------------------------------|----------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------|
+| query | uuid              | string                                  | false    | A comma-separated list of Application UUIDs. Find applications by their UUID.                                                                                                                                                           |         |
+| query | vendor_id         | string                                  | false    | A comma-separated list of Vendor IDs. Find applications owned by specific Vendors.                                                                                                                                                      |         |
+| query | status            | string: DEVELOPMENT, REVIEW, PRODUCTION | false    | Only retrieve applications matching the provided status. This parameter is only available for vendors with SHAID admin access; For non-admins, the value of this parameter will always be `PRODUCTION`.                                 |         |
+| query | approval_status   | string: DENIED, PENDING, APPROVED       | false    | Only retrieve applications matching the provided SDLC approval status. This parameter is only available for vendors with SHAID admin access; For non-admins, the value of this parameter will always be `APPROVED`.                     |         |
+| query | granted_vendor_id | string                                  | false    | A comma-separated list of Vendor IDs. Find applications granted read access to the given Vendor IDs. This parameter is only available for vendors with SHAID admin access; For non-admins, the value of this parameter will be ignored. |         |
+| query | platform          | string: ANDROID, IOS                    | false    | Only retrieve applications matching the provided platform.                                                                                                                                                                              |         |
+| query | country_iso       | string                                  | false    | Only retrieve applications built to support the provided country.                                                                                                                                                                       |         |
+| query | category_id       | integer                                 | false    | Only retrieve applications in the provided category. See `GET /category` for a list of available values.                                                                                                                                |         |
+| query | allow_marketing   | boolean                                 | false    | Only retrieve applications that explicitly allow or deny marketing/promotion of their application.                                                                                                                                      |         |
+| query | limit             | integer                                 | false    | The maximum number of results to return. Max 50. Default 50.                                                                                                                                                                            | `50`    |
+| query | offset            | integer                                 | false    | The number of results to offset, for basic pagination.                                                                                                                                                                                  | `0`     |
+| query | sort_by           | string: id, name                        | false    | How to order the results.                                                                                                                                                                                                               | `"id"`  |
 
 #### Response: 200
 
@@ -76,9 +77,10 @@ Retrieve a list of supported categories an Application can choose to be listed u
 
 **Parameters**
 
-| in    | name             | type   | required | description                                                                                                                                   |
-|-------|------------------|--------|----------|-----------------------------------------------------------------------------------------------------------------------------------------------|
-| query | application_uuid | string | false    | Check each category against the given Application to see if it is currently in use by the Application, returned by the is_selected attribute. |
+| in    | name             | type                                    | required | description                                                                                                                                                                                                            |
+|-------|------------------|-----------------------------------------|----------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| query | application_uuid | string                                  | false    | Check each category against the given Application to see if it is currently in use by the Application, returned by the is_selected attribute.                                                                          |
+| query | status           | string: DEVELOPMENT, REVIEW, PRODUCTION | false    | Only match against the given `application_uuid` in the provided status. This parameter is only available for vendors with SHAID admin access; For non-admins, the value of this parameter will always be `PRODUCTION`. |
 
 #### Response: 200
 
@@ -116,9 +118,10 @@ Retrieve a list of countries an Application can choose to operate in (should the
 
 **Parameters**
 
-| in    | name             | type   | required | description                                                                                                                                  |
-|-------|------------------|--------|----------|----------------------------------------------------------------------------------------------------------------------------------------------|
-| query | application_uuid | string | false    | Check each country against the given Application to see if it is currently in use by the Application, returned by the is_selected attribute. |
+| in    | name             | type                                    | required | description                                                                                                                                                                                                            |
+|-------|------------------|-----------------------------------------|----------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| query | application_uuid | string                                  | false    | Check each country against the given Application to see if it is currently in use by the Application, returned by the is_selected attribute.                                                                           |
+| query | status           | string: DEVELOPMENT, REVIEW, PRODUCTION | false    | Only match against the given `application_uuid` in the provided status. This parameter is only available for vendors with SHAID admin access; For non-admins, the value of this parameter will always be `PRODUCTION`. |
 
 #### Response: 200
 
@@ -156,11 +159,12 @@ Retrieve a list of supported permissions an Application can request access to. A
 
 **Parameters**
 
-| in    | name             | type    | required | description                                                                                                                                   | default |
-|-------|------------------|---------|----------|-----------------------------------------------------------------------------------------------------------------------------------------------|---------|
-| query | application_uuid | string  | false    | Check each permission against the given Application to see if it is currently in use by the Application, returned by the hmi_level attribute. |         |
-| query | include_hidden   | boolean | false    | Set to `true` to return permissions which are not presented to app developers as selectable permission options. Default `false`.              | `false` |
-| query | include_parents  | boolean | false    | Set to `true` to return a `parent_permissions` array of permission objects in each first-level permission object. Default `false`.            | `false` |
+| in    | name             | type                                    | required | description                                                                                                                                                                                                            | default |
+|-------|------------------|-----------------------------------------|----------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------|
+| query | application_uuid | string                                  | false    | Check each permission against the given Application to see if it is currently in use by the Application, returned by the hmi_level attribute.                                                                          |         |
+| query | status           | string: DEVELOPMENT, REVIEW, PRODUCTION | false    | Only match against the given `application_uuid` in the provided status. This parameter is only available for vendors with SHAID admin access; For non-admins, the value of this parameter will always be `PRODUCTION`. |         |
+| query | include_hidden   | boolean                                 | false    | Set to `true` to return permissions which are not presented to app developers as selectable permission options. Default `false`.                                                                                       | `false` |
+| query | include_parents  | boolean                                 | false    | Set to `true` to return a `parent_permissions` array of permission objects in each first-level permission object. Default `false`.                                                                                     | `false` |
 
 #### Response: 200
 
