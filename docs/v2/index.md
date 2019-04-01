@@ -1,12 +1,14 @@
 ### [Click here for the full API documentation](https://shaid.smartdevicelink.com/docs)
-# SHAID v2.0.0
+# SHAID v2.2.0
 
 Base URL: https://shaid.smartdevicelink.com/api/v2
 
 - [Endpoints](#endpoints)
   - [GET /application](#get-application)
+  - [PUT /application/approval/vendor](#put-applicationapprovalvendor)
   - [GET /category](#get-category)
   - [GET /country](#get-country)
+  - [GET /service](#get-service)
   - [GET /permission](#get-permission)
   - [POST /webhooks](#post-webhooks)
 
@@ -22,20 +24,24 @@ Retrieve one or more SDL applications and metadata about them: their UUID (a uni
 
 **Parameters**
 
-| in    | name              | type                                    | required | description                                                                                                                                                                                                                             | default |
-|-------|-------------------|-----------------------------------------|----------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------|
-| query | uuid              | string                                  | false    | A comma-separated list of Application UUIDs. Find applications by their UUID.                                                                                                                                                           |         |
-| query | vendor_id         | string                                  | false    | A comma-separated list of Vendor IDs. Find applications owned by specific Vendors.                                                                                                                                                      |         |
-| query | status            | string: DEVELOPMENT, REVIEW, PRODUCTION | false    | Only retrieve applications matching the provided status. This parameter is only available for vendors with SHAID admin access; For non-admins, the value of this parameter will always be `PRODUCTION`.                                 |         |
-| query | approval_status   | string: DENIED, PENDING, APPROVED       | false    | Only retrieve applications matching the provided SDLC approval status. This parameter is only available for vendors with SHAID admin access; For non-admins, the value of this parameter will always be `APPROVED`.                     |         |
-| query | granted_vendor_id | string                                  | false    | A comma-separated list of Vendor IDs. Find applications granted read access to the given Vendor IDs. This parameter is only available for vendors with SHAID admin access; For non-admins, the value of this parameter will be ignored. |         |
-| query | platform          | string: ANDROID, IOS                    | false    | Only retrieve applications matching the provided platform.                                                                                                                                                                              |         |
-| query | country_iso       | string                                  | false    | Only retrieve applications built to support the provided country.                                                                                                                                                                       |         |
-| query | category_id       | integer                                 | false    | Only retrieve applications in the provided category. See `GET /category` for a list of available values.                                                                                                                                |         |
-| query | allow_marketing   | boolean                                 | false    | Only retrieve applications that explicitly allow or deny marketing/promotion of their application.                                                                                                                                      |         |
-| query | limit             | integer                                 | false    | The maximum number of results to return. Max 50. Default 50.                                                                                                                                                                            | `50`    |
-| query | offset            | integer                                 | false    | The number of results to offset, for basic pagination.                                                                                                                                                                                  | `0`     |
-| query | sort_by           | string: id, name                        | false    | How to order the results.                                                                                                                                                                                                               | `"id"`  |
+| in    | name                | type                                                                                                                         | required | description                                                                                                                                                                                                                             | default            |
+|-------|---------------------|------------------------------------------------------------------------------------------------------------------------------|----------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------|
+| query | uuid                | string                                                                                                                       | false    | A comma-separated list of Application UUIDs. Find applications by their UUID.                                                                                                                                                           |                    |
+| query | vendor_id           | string                                                                                                                       | false    | A comma-separated list of Vendor IDs. Find applications owned by specific Vendors.                                                                                                                                                      |                    |
+| query | status              | string: DEVELOPMENT, REVIEW, PRODUCTION                                                                                      | false    | Only retrieve applications matching the provided status. This parameter is only available for vendors with SHAID admin access; For non-admins, the value of this parameter will always be `PRODUCTION`.                                 |                    |
+| query | approval_status     | string: DENIED, PENDING, APPROVED                                                                                            | false    | Only retrieve applications matching the provided SDLC approval status. This parameter is only available for vendors with SHAID admin access; For non-admins, the value of this parameter will always be `APPROVED`.                     |                    |
+| query | granted_vendor_id   | string                                                                                                                       | false    | A comma-separated list of Vendor IDs. Find applications granted read access to the given Vendor IDs. This parameter is only available for vendors with SHAID admin access; For non-admins, the value of this parameter will be ignored. |                    |
+| query | platform            | string: ANDROID, IOS, CLOUD, EMBEDDED                                                                                        | false    | Only retrieve applications matching the provided platform.                                                                                                                                                                              |                    |
+| query | country_iso         | string                                                                                                                       | false    | Only retrieve applications built to support the provided country.                                                                                                                                                                       |                    |
+| query | category_id         | integer                                                                                                                      | false    | Only retrieve applications in the provided category. See `GET /category` for a list of available values.                                                                                                                                |                    |
+| query | allow_marketing     | boolean                                                                                                                      | false    | Only retrieve applications that explicitly allow or deny marketing/promotion of their application.                                                                                                                                      |                    |
+| query | include_deleted     | boolean                                                                                                                      | false    | Include applications in the response which are deleted.                                                                                                                                                                                 | `false`            |
+| query | include_blacklisted | boolean                                                                                                                      | false    | Include applications in the response which are blacklisted by the SDLC.                                                                                                                                                                 | `false`            |
+| query | name                | string                                                                                                                       | false    | Search for Applications containing the provided string in their name.                                                                                                                                                                   |                    |
+| query | limit               | integer                                                                                                                      | false    | The maximum number of results to return. Max 50. Default 50.                                                                                                                                                                            | `50`               |
+| query | offset              | integer                                                                                                                      | false    | The number of results to offset, for basic pagination.                                                                                                                                                                                  | `0`                |
+| query | sort_by             | string: application.id, application.name, application.platform, application.status, application.approval_status, vendor.name | false    | Which property to sort the results by.                                                                                                                                                                                                  | `"application.id"` |
+| query | sort_order          | string: ASC, DESC                                                                                                            | false    | How to order the results (in combination with `sort_by`).                                                                                                                                                                               | `"ASC"`            |
 
 #### Response: 200
 
@@ -68,6 +74,49 @@ Internal server error.
 N/A
 
 
+
+## PUT /application/approval/vendor
+
+This operation changes the requesting OEM's `approval_status` property of an application version.
+
+**Parameters**
+
+| in   | name         | required | description                                   |
+|------|--------------|----------|-----------------------------------------------|
+| body | applications | true     | An array of Application OEM Approval objects. |
+
+**Request Body**
+
+- (object)
+  - applications (array) (optional)
+    - (object)
+      - version_id (int64) A unique integer to identify the application version
+      - approval_status (string: LIMITED, ACCEPTED) The OEM's selected status of the application version
+      - notes (string) (optional) Notes by the OEM to be shared with the application developer
+
+#### Response: 200
+
+Application OEM approval status(es) updated! The application version(s) provided were successfully updated.
+
+**Schema**
+
+N/A
+
+#### Response: 400
+
+Invalid request. You probably tried to update an application version ID which you don't have access to.
+
+**Schema**
+
+N/A
+
+#### Response: 500
+
+Internal server error.
+
+**Schema**
+
+N/A
 
 
 
@@ -153,6 +202,48 @@ Internal server error.
 
 N/A
 
+## GET /service
+
+Retrieve a list of app service types an Application can choose to support. An Application may support many service types.
+
+**Parameters**
+
+| in    | name                | type                                    | required | description                                                                                                                                                                                                            | default |
+|-------|---------------------|-----------------------------------------|----------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------|
+| query | include_permissions | boolean                                 | false    | Set to `true` to return a `permissions` array of permission objects associated with each app service type. Default `false`.                                                                                            | `false` |
+| query | application_uuid    | string                                  | false    | Check each service against the given Application to see if it is currently supported by the Application, returned by the is_selected attribute.                                                                        |         |
+| query | status              | string: DEVELOPMENT, REVIEW, PRODUCTION | false    | Only match against the given `application_uuid` in the provided status. This parameter is only available for vendors with SHAID admin access; For non-admins, the value of this parameter will always be `PRODUCTION`. |         |
+
+#### Response: 200
+
+Services retrieved! The request was successful and the services are returned in the response body.
+
+**Schema**
+
+- (object)
+  - meta (object) (optional)
+    - request_id (string) A unique ID for the request
+    - code (int32) The HTTP status code of the response
+    - message (string) A readable summary of the request result
+  - data (object) (optional)
+    - services (unspecified type) (optional)
+
+#### Response: 400
+
+Invalid request. The request is either missing data, has invalid data, or has conflicting data. See the response body for more details.
+
+**Schema**
+
+N/A
+
+#### Response: 500
+
+Internal server error.
+
+**Schema**
+
+N/A
+
 ## GET /permission
 
 Retrieve a list of supported permissions an Application can request access to. An Application can use many permissions. A SmartDeviceLink Application requires certain data permissions about the mobility experience. These permissions are chosen by the developer and should be synchronized with OEM systems or SDL Server implementations.
@@ -202,6 +293,12 @@ N/A
 
 
 
+
+
+
+
+
+
 ## POST /webhooks
 
 #### Not an actual endpoint. This section describes how webhooks are sent to third-party SDL Policy Servers
@@ -228,6 +325,7 @@ N/A
 
 - (object)
   - entity (string) (optional) The type of entity the webhook notification is regarding.
+  - action (string: UPSERT, DELETE) (optional) The action taken to cause the webhook.
   - uuid (string) (optional) In the event of an `application` entity, this respresents the application's UUID.
   - updated_ts (string, date-time) (optional) The DateTime the entity was updated which caused the webhook to be sent.
   - deleted_ts (string, date-time) (optional) The DateTime the entity was deleted which cased the webhook to be sent. Deleted entities will not have future webhook events and will no longer be available in GET requests.
