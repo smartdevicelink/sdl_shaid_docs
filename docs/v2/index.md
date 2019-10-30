@@ -1,5 +1,5 @@
 ### [Click here for the full API documentation](https://shaid.smartdevicelink.com/docs)
-# SHAID v2.2.0
+# SHAID v2.4.0
 
 Base URL: https://shaid.smartdevicelink.com/api/v2
 
