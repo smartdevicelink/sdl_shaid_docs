@@ -1,5 +1,5 @@
 ### [Click here for the full API documentation](https://shaid.smartdevicelink.com/docs)
-# SHAID v2.4.0
+# SHAID v2.5.0
 
 Base URL: https://shaid.smartdevicelink.com/api/v2
 
@@ -10,6 +10,7 @@ Base URL: https://shaid.smartdevicelink.com/api/v2
   - [GET /country](#get-country)
   - [GET /service](#get-service)
   - [GET /permission](#get-permission)
+  - [GET /locale](#get-locale)
   - [POST /webhooks](#post-webhooks)
 
 # Endpoints
@@ -24,24 +25,33 @@ Retrieve one or more SDL applications and metadata about them: their UUID (a uni
 
 **Parameters**
 
-| in    | name                | type                                                                                                                         | required | description                                                                                                                                                                                                                             | default            |
-|-------|---------------------|------------------------------------------------------------------------------------------------------------------------------|----------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------|
-| query | uuid                | string                                                                                                                       | false    | A comma-separated list of Application UUIDs. Find applications by their UUID.                                                                                                                                                           |                    |
-| query | vendor_id           | string                                                                                                                       | false    | A comma-separated list of Vendor IDs. Find applications owned by specific Vendors.                                                                                                                                                      |                    |
-| query | status              | string: DEVELOPMENT, REVIEW, PRODUCTION                                                                                      | false    | Only retrieve applications matching the provided status. This parameter is only available for vendors with SHAID admin access; For non-admins, the value of this parameter will always be `PRODUCTION`.                                 |                    |
-| query | approval_status     | string: DENIED, PENDING, APPROVED                                                                                            | false    | Only retrieve applications matching the provided SDLC approval status. This parameter is only available for vendors with SHAID admin access; For non-admins, the value of this parameter will always be `APPROVED`.                     |                    |
-| query | granted_vendor_id   | string                                                                                                                       | false    | A comma-separated list of Vendor IDs. Find applications granted read access to the given Vendor IDs. This parameter is only available for vendors with SHAID admin access; For non-admins, the value of this parameter will be ignored. |                    |
-| query | platform            | string: ANDROID, IOS, CLOUD, EMBEDDED                                                                                        | false    | Only retrieve applications matching the provided platform.                                                                                                                                                                              |                    |
-| query | country_iso         | string                                                                                                                       | false    | Only retrieve applications built to support the provided country.                                                                                                                                                                       |                    |
-| query | category_id         | integer                                                                                                                      | false    | Only retrieve applications in the provided category. See `GET /category` for a list of available values.                                                                                                                                |                    |
-| query | allow_marketing     | boolean                                                                                                                      | false    | Only retrieve applications that explicitly allow or deny marketing/promotion of their application.                                                                                                                                      |                    |
-| query | include_deleted     | boolean                                                                                                                      | false    | Include applications in the response which are deleted.                                                                                                                                                                                 | `false`            |
-| query | include_blacklisted | boolean                                                                                                                      | false    | Include applications in the response which are blacklisted by the SDLC.                                                                                                                                                                 | `false`            |
-| query | name                | string                                                                                                                       | false    | Search for Applications containing the provided string in their name.                                                                                                                                                                   |                    |
-| query | limit               | integer                                                                                                                      | false    | The maximum number of results to return. Max 50. Default 50.                                                                                                                                                                            | `50`               |
-| query | offset              | integer                                                                                                                      | false    | The number of results to offset, for basic pagination.                                                                                                                                                                                  | `0`                |
-| query | sort_by             | string: application.id, application.name, application.platform, application.status, application.approval_status, vendor.name | false    | Which property to sort the results by.                                                                                                                                                                                                  | `"application.id"` |
-| query | sort_order          | string: ASC, DESC                                                                                                            | false    | How to order the results (in combination with `sort_by`).                                                                                                                                                                               | `"ASC"`            |
+| in    | name                        | type                                                                                                                                                                                                | required | description                                                                                                                                                                                                                                                                                                                 | default            |
+|-------|-----------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------|
+| query | uuid                        | string                                                                                                                                                                                              | false    | A comma-separated list of Application UUIDs. Find applications by their UUID.                                                                                                                                                                                                                                               |                    |
+| query | version_id                  | string                                                                                                                                                                                              | false    | A comma-separated list of Application Version IDs. Find applications by specific version IDs.                                                                                                                                                                                                                               |                    |
+| query | vendor_id                   | string                                                                                                                                                                                              | false    | A comma-separated list of Vendor IDs. Find applications owned by specific Vendors.                                                                                                                                                                                                                                          |                    |
+| query | champion_assigned_vendor_id | string                                                                                                                                                                                              | false    | A comma-separated list of Vendor IDs. Find applications with specific assigned champion Vendors. Alternatively, find applications without an assigned champion Vendor by sending `null`. This parameter is only available for vendors with SHAID admin access; For non-admins, the value of this parameter will be ignored. |                    |
+| query | champion_approval_status    | string: APPROVED, PENDING, DENIED                                                                                                                                                                   | false    | A comma-separated list of Champion Approval Statuses. Only retrieve applications matching the provided champion approval status. This parameter is only available for vendors with SHAID admin access; For non-admins, the value of this parameter will be ignored.                                                         |                    |
+| query | status                      | string: DEVELOPMENT, REVIEW, PRODUCTION                                                                                                                                                             | false    | A comma-separated list of Statuses. Only retrieve applications matching the provided status. This parameter is only available for vendors with SHAID admin access; For non-admins, the value of this parameter will always be `PRODUCTION`.                                                                                 |                    |
+| query | approval_status             | string: DENIED, PENDING, APPROVED                                                                                                                                                                   | false    | Only retrieve applications matching the provided SDLC approval status. This parameter is only available for vendors with SHAID admin access; For non-admins, the value of this parameter will always be `APPROVED`.                                                                                                         |                    |
+| query | granted_vendor_id           | string                                                                                                                                                                                              | false    | A comma-separated list of Vendor IDs. Find applications granted read access to the given Vendor IDs. This parameter is only available for vendors with SHAID admin access; For non-admins, the value of this parameter will be ignored.                                                                                     |                    |
+| query | not_granted_vendor_id       | string                                                                                                                                                                                              | false    | A comma-separated list of Vendor IDs. Find applications NOT granted read access to the given Vendor IDs. This parameter is only available for vendors with SHAID admin access; For non-admins, the value of this parameter will be ignored.                                                                                 |                    |
+| query | platform                    | string: ANDROID, IOS, CLOUD, EMBEDDED                                                                                                                                                               | false    | Only retrieve applications matching the provided platform. Supports filtering on multiple platforms as a comma-separated list.                                                                                                                                                                                              |                    |
+| query | country_iso                 | string                                                                                                                                                                                              | false    | Only retrieve applications built to support the provided country.                                                                                                                                                                                                                                                           |                    |
+| query | category_id                 | integer                                                                                                                                                                                             | false    | Only retrieve applications in the provided category. See `GET /category` for a list of available values. Supports filtering on multiple categories as a comma-separated list.                                                                                                                                               |                    |
+| query | allow_marketing             | boolean                                                                                                                                                                                             | false    | Only retrieve applications that explicitly allow or deny marketing/promotion of their application.                                                                                                                                                                                                                          |                    |
+| query | include_deleted             | boolean                                                                                                                                                                                             | false    | Include applications in the response which are deleted.                                                                                                                                                                                                                                                                     | `false`            |
+| query | include_blacklisted         | boolean                                                                                                                                                                                             | false    | Include applications in the response which are blacklisted by the SDLC.                                                                                                                                                                                                                                                     | `false`            |
+| query | name                        | string                                                                                                                                                                                              | false    | Search for Applications containing the provided string in their name.                                                                                                                                                                                                                                                       |                    |
+| query | query_type                  | string: ALL, LATEST                                                                                                                                                                                 | false    | Modifies the scope of the endpoint to query ALL versions of each application, the LATEST version of each application, or only the latest production version of each application (default).                                                                                                                                  |                    |
+| query | has_entered_review          | boolean                                                                                                                                                                                             | false    | Only retrieve applications that are either currently in or have been reviewed (true) or have not yet entered review (false). Default null.                                                                                                                                                                                  |                    |
+| query | is_in_catalog               | boolean                                                                                                                                                                                             | false    | Whether the app should appear in the App Catalog on smartdevicelink.com.                                                                                                                                                                                                                                                    |                    |
+| query | is_homepage_app             | boolean                                                                                                                                                                                             | false    | Whether the app is eligible appear on the homepage smartdevicelink.com.                                                                                                                                                                                                                                                     |                    |
+| query | is_oem_specific             | boolean                                                                                                                                                                                             | false    | Whether the app should appear in the OEM-specific section of the App Catalog.                                                                                                                                                                                                                                               |                    |
+| query | limit                       | integer                                                                                                                                                                                             | false    | The maximum number of results to return. Max 50. Default 50.                                                                                                                                                                                                                                                                | `50`               |
+| query | offset                      | integer                                                                                                                                                                                             | false    | The number of results to offset, for basic pagination.                                                                                                                                                                                                                                                                      | `0`                |
+| query | sort_by                     | string: application.id, application.name, application.platform, application.status, application.approval_status, vendor.name, application.champion_approval_status, application.champion_updated_ts | false    | Which property to sort the results by.                                                                                                                                                                                                                                                                                      | `"application.id"` |
+| query | sort_order                  | string: ASC, DESC                                                                                                                                                                                   | false    | How to order the results (in combination with `sort_by`).                                                                                                                                                                                                                                                                   | `"ASC"`            |
 
 #### Response: 200
 
@@ -117,6 +127,22 @@ Internal server error.
 **Schema**
 
 N/A
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -299,12 +325,53 @@ N/A
 
 
 
+## GET /locale
+
+Retrieve a list of RFC 5646 language codes. An Application can have many locales supported.
+
+**Parameters**
+
+| in    | name             | type                                    | required | description                                                                                                                                                                                                            |
+|-------|------------------|-----------------------------------------|----------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| query | application_uuid | string                                  | false    | Check each locale against the given Application to see if it is currently in use by the Application, returned by the is_selected attribute.                                                                            |
+| query | status           | string: DEVELOPMENT, REVIEW, PRODUCTION | false    | Only match against the given `application_uuid` in the provided status. This parameter is only available for vendors with SHAID admin access; For non-admins, the value of this parameter will always be `PRODUCTION`. |
+
+#### Response: 200
+
+Locales retrieved! The request was successful and the locales are returned in the response body.
+
+**Schema**
+
+- (object)
+  - meta (object) (optional)
+    - request_id (string) A unique ID for the request
+    - code (int32) The HTTP status code of the response
+    - message (string) A readable summary of the request result
+  - data (object) (optional)
+    - locales (unspecified type) (optional)
+
+#### Response: 400
+
+Invalid request. The request is either missing data, has invalid data, or has conflicting data. See the response body for more details.
+
+**Schema**
+
+N/A
+
+#### Response: 500
+
+Internal server error.
+
+**Schema**
+
+N/A
+
 ## POST /webhooks
 
 #### Not an actual endpoint. This section describes how webhooks are sent to third-party SDL Policy Servers
 
  ### Summary
- Webhook events are sent to Vendors who have SDLC Membership level 1-4 and have opted to receive them. They are designed to assist SDL Policy Servers in maintaining a synchronized state of SDL application metadata to ensure Policy Tables are kept up-to-date.
+ Webhook events are sent to Vendors who have SDLC Membership level 1-2 and have opted to receive them. They are designed to assist SDL Policy Servers in maintaining a synchronized state of SDL application metadata to ensure Policy Tables are kept up-to-date.
 
  ### Success, Retry, and Failure
  A webhook is considered successful if it receives an HTTP 2XX response from your server within 5 seconds of the request. In the event of a failure, we will attempt to re-send individual webhooks up to 3 more times, with 30 minute intervals between each attempt. If all 4 attempts fail to respond with an HTTP 2XX response code within 5 seconds, no further attempts will be made to send the webhook, and an email will be sent to the contact information on file to notify you of the repeated failures.
