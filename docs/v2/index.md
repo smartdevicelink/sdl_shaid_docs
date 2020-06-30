@@ -1,6 +1,4 @@
 ### [Click here for the full API documentation](https://shaid.smartdevicelink.com/docs)
-
-SHAID v2.6.0+ now supports issue tracking and facilitating OEM communication with App Developers. Click [here](https://github.com/smartdevicelink/sdl_evolution/blob/master/proposals/0218-developer-oem-communication.md) for the full proposal.
 # SHAID v2.6.0
 
 Base URL: https://shaid.smartdevicelink.com/api/v2
