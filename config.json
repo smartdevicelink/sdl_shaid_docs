@@ -1,15 +1,1 @@
-{
-    "Authors": [
-        "Nick Schwab"
-    ],
-    "languages": [
-        "en"
-    ],
-    "navigation": [
-        {
-            "name": "v2"
-        }, {
-            "name": "v1"
-        }
-    ]
-}
+{"navigation":[{"name":"Application"},{"name":"Application"},{"name":"Category"},{"name":"Country"},{"name":"Service"},{"name":"Permission"},{"name":"Locale"},{"name":"Webhooks"}],"Authors":["Nick Schwab","Nick Reno"],"languages":["en"]}
