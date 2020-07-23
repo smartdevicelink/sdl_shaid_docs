@@ -2,16 +2,16 @@
 
 #### Not an actual endpoint. This section describes how webhooks are sent to third-party SDL Policy Servers
 
- ### Summary
+### Summary
  Webhook events are sent to Vendors who have SDLC Membership level 1-4, are tagged by the SDLC as an "App Consumer", and have opted to receive the events by providing a Webhook URL in their company profile. They are designed to assist SDL Policy Servers in maintaining a synchronized state of SDL application metadata to ensure Policy Tables are kept up-to-date.
 
- ### Success, Retry, and Failure
+### Success, Retry, and Failure
  A webhook is considered successful if it receives an HTTP 2XX response from your server within 5 seconds of the request. In the event of a failure, we will attempt to re-send individual webhooks up to 3 more times, with 30 minute intervals between each attempt. If all 4 attempts fail to respond with an HTTP 2XX response code within 5 seconds, no further attempts will be made to send the webhook, and an email will be sent to the contact information on file to notify you of the repeated failures.
 
- ### Requests
+### Requests
  Webhooks are sent via HTTP POST requests to the endpoint on file for certain vendors. Vendors can manage their webhook endpoint via the [SDL Developer Portal](https://smartdevicelink.com). The initial webhook attempt typically occurs within 5 seconds of the data being changed on SHAID, and retry attempts typically occur at 30 minute intervals.
 
- ### Supported Webhook Entities
+### Supported Webhook Entities
  Only the `application` entity is currently sent in webhooks, but we may introduce support for more in the future. Please make sure your webhook receiver is designed to gracefully handle/ignore additional entity types over time.
 
 **Parameters**
