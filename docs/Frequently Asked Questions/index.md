@@ -1,3 +1,5 @@
+# Frequently Asked Questions
+
 #### I see SHAID v2, but where's SHAID v1?
 
 SHAID v1.0 has been deprecated and removed. Please refer to the latest version.
