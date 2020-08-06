@@ -14,7 +14,7 @@ If you are an SDLC Silver member or higher, you can obtain your SHAID API key pa
 
 #### Help! My webhook isn't working! What do I do?
 
-Ensure that you have the correct URL set in the Company Info tab on the SDL Developer Portal. Additional information regarding webhooks can be found in our Policy Server [API Guides](https://smartdevicelink.com/en/guides/sdl-server/getting-started/api/)
+Ensure that you have the correct URL set in the Company Info tab on the SDL Developer Portal. Additional information regarding webhooks can be found in our Policy Server [API Guides](https://smartdevicelink.com/en/guides/sdl-server/getting-started/api/).
 
 #### I have an issue that isn't covered here.
 
