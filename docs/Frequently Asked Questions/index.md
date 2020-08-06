@@ -9,7 +9,7 @@ SHAID v1.0 has been deprecated and removed. Please refer to the latest version.
 We have our SDL Developer Portal Registration Guide and other helpful documents on our Resources page [here](https://smartdevicelink.com/resources/).
 
 #### How do I get SHAID keys? What do I do with them?
-If you are an SDLC Silver member or higher, you can obtain your SHAID API key pair on the SHAID tab when logged into the SDL Developer Portal.
+If you are an SDLC Silver member or higher, you can obtain your SHAID API key pair on the SHAID tab when logged into the SDL Developer Portal. They will be included in the headers of your requests to SHAID as `public_key` and `secret_key`.
 They will be included in the headers of your requests to SHAID as `public_key` and `secret_key`.
 
 
