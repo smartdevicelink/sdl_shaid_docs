@@ -1,0 +1,4 @@
+# Overview
+SmartDeviceLink applications must have a unique Application ID across all OEM [SDL Policy Server](https://github.com/smartdevicelink/sdl_policy_server) implementations. To enforce uniqueness of these Application IDs and to keep information about SDL-supported applications synchronized across the ecosystem, the Shared App Information Database (SHAID) was created.
+
+SHAID should be integrated with each OEM's SDL Policy Server to receive real-time updates when SDL application developers create or make changes to an application. This synchronization provides a single point of administration for app developers via the SDL Developer Portal, while providing OEMs with this API to be able to ensure their generated SDL Policy Table is always up-to-date with the latest application information. SmartDeviceLink provides an open-source example of a functional SDL Policy Server with SHAID integration [here](https://github.com/smartdevicelink/sdl_server).
