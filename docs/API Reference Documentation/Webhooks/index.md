@@ -25,7 +25,7 @@
 - (object)
   - entity (string) (optional) The type of entity the webhook notification is regarding.
   - action (string: UPSERT, DELETE) (optional) The action taken to cause the webhook.
-  - uuid (string) (optional) In the event of an `application` entity, this respresents the application's UUID.
+  - uuid (string) (optional) In the event of an `application` entity, this represents the application's UUID.
   - updated_ts (string, date-time) (optional) The DateTime the entity was updated which caused the webhook to be sent.
   - deleted_ts (string, date-time) (optional) The DateTime the entity was deleted which cased the webhook to be sent. Deleted entities will not have future webhook events and will no longer be available in GET requests.
 
